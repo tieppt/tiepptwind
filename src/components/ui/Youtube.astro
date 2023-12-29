@@ -13,6 +13,6 @@ const { className, title, id, loading = 'lazy' } = Astro.props;
     src={`https://www.youtube.com/embed/${id}`}
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
     allowfullscreen
-    title={title}
+    title={title ?? `YouTube video player for ${id}`}
     loading={loading}></iframe>
 </div>
