@@ -1,6 +1,6 @@
 site:
   name: TiepPhan
-  site: 'https://blog.tiepphan.com'
+  site: 'https://next.tiepphan.com'
   base: '/'
   trailingSlash: false
 
