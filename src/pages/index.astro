@@ -1,0 +1,43 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+
+const metadata = {
+  title: 'TiepPhan Blog',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'View my latest posts',
+        href: '#highlighted-posts',
+        icon: 'tabler:chevrons-down',
+      },
+    ]}
+    image={{ src: '~/assets/images/hero.png', alt: 'Blog Hero Image' }}
+  >
+    <Fragment slot="title">Tiep Phan Blog</Fragment>
+
+    <Fragment slot="subtitle">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod facilis
+      blanditiis ex qui quasi consequatur minima, quidem dolor placeat
+      voluptatum?
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+  <!-- HighlightedPosts Widget ******* -->
+  <div id="highlighted-posts"></div>
+  <BlogLatestPosts title="Find out more content in our Blog" />
+</Layout>
