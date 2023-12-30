@@ -111,3 +111,12 @@ export const adaptOpenGraphImages = async (
 
   return { ...openGraph, ...(adaptedImages ? { images: adaptedImages } : {}) };
 };
+
+export function parseImageSize(
+  value: string | number | null | undefined,
+): string | number | null | undefined {
+  if (typeof value === 'string' && /^\d+$/.test(value)) {
+    return parseInt(value, 10);
+  }
+  return value;
+}

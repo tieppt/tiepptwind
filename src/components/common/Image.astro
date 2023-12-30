@@ -1,5 +1,5 @@
 ---
-import { findImage } from '~/utils/images';
+import { findImage, parseImageSize } from '~/utils/images';
 import {
   getImagesOptimized,
   astroAsseetsOptimizer,
@@ -16,17 +16,12 @@ type ImageType = {
 
 const props = Astro.props;
 
-if (props.alt === undefined || props.alt === null) {
+if (props.alt == null) {
   throw new Error();
 }
 
-if (typeof props.width === 'string') {
-  props.width = parseInt(props.width);
-}
-
-if (typeof props.height === 'string') {
-  props.height = parseInt(props.height);
-}
+props.width = parseImageSize(props.width);
+props.height = parseImageSize(props.height);
 
 if (!props.loading) {
   props.loading = 'lazy';
