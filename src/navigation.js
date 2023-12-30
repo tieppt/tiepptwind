@@ -11,10 +11,7 @@ export const headerData = {
         },
         {
           text: 'Article',
-          href: getPermalink(
-            'practical-micro-frontends-angular',
-            'post',
-          ),
+          href: getPermalink('practical-micro-frontends-angular', 'post'),
         },
         {
           text: 'Article (with MDX)',

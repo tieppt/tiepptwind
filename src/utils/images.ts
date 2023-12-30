@@ -1,16 +1,18 @@
 import { getImage } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import type { GetImageResult, ImageMetadata } from 'astro';
 import type { OpenGraph } from '@astrolib/seo';
 
 const load = async function () {
   let images: Record<string, () => Promise<unknown>> | undefined = undefined;
   try {
-    images = import.meta.glob(
+    images = import.meta.glob([
       '~/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}',
-    );
+      '@public/assets/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}',
+    ]);
   } catch (e) {
     // continue regardless of error
   }
+
   return images;
 };
 
@@ -39,14 +41,14 @@ export const findImage = async (
   ) {
     return imagePath;
   }
-
-  // Relative paths or not "~/assets/"
-  if (!imagePath.startsWith('~/assets/images')) {
+  const isStartsWithAssets = imagePath.startsWith('~/assets/images');
+  const isStartsWithPublicAssets = imagePath.startsWith('@public/assets');
+  if (!(isStartsWithAssets || isStartsWithPublicAssets)) {
     return imagePath;
   }
 
   const images = await fetchLocalImages();
-  const key = imagePath.replace('~/', '/src/');
+  const key = imagePath.replace('~/', '/src/').replace('@public/', '/public/');
 
   return images && typeof images[key] === 'function'
     ? ((await images[key]()) as { default: ImageMetadata })['default']
@@ -78,12 +80,12 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        const _image = await getImage({
+        const _image = (await getImage({
           src: resolvedImage,
           alt: 'Placeholder alt',
           width: image?.width || defaultWidth,
           height: image?.height || defaultHeight,
-        });
+        })) as GetImageResult & { width?: number; height?: number };
 
         if (typeof _image === 'object') {
           return {
