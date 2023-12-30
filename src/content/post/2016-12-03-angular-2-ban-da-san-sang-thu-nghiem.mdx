@@ -1,14 +1,12 @@
 ---
-id: 131
 title: 'Angular 2 – Bạn Đã Sẵn Sàng Thử Nghiệm'
 publishDate: 2016-12-03T00:00:32+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=131
 permalink: /angular-2-ban-da-san-sang-thu-nghiem/
-description: 'Angular 2đã phát hành chính thức, hầu hết các blog đều có những lời đánh tiếng về nó và cũng có vô vàn các hướng dẫn để bạn có thể tiếp cận với Angular 2. Vậy bạn đã sẵn sàng để bắt đầu với nền tảng hot này chưa?'
+description: 'Angular 2 đã phát hành chính thức, hầu hết các blog đều có những lời đánh tiếng về nó và cũng có vô vàn các hướng dẫn để bạn có thể tiếp cận với Angular 2. Vậy bạn đã sẵn sàng để bắt đầu với nền tảng hot này chưa?'
 image: '@public/assets/uploads/2016/11/angular-2.png'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -17,21 +15,24 @@ tags:
   - Angular
   - Angular 2
   - ES2015
-  - Javascript
+  - JavaScript
   - Nodejs
   - Web Dev
 ---
-
-# Angular 2 – Bạn Đã Sẵn Sàng Thử Nghiệm
+import Figure from '~/components/ui/Figure.astro';
 
 <a href="https://angular.io/" target="_blank">Angular 2</a> đã phát hành chính thức, tính tới thời điểm viết bài này, nó đã ra đến phiên bản 2.2.x, hầu hết các blog đều có những lời đánh tiếng về nó và cũng có vô vàn các hướng dẫn để bạn có thể tiếp cận với Angular 2. Vậy bạn đã sẵn sàng để bắt đầu với nền tảng hot này chưa? Hãy cùng mình thử nghiệm với nó nhé.
 
-
-<a href="/assets/uploads/2016/12/angular-angular.png" target="_blank"><img class="img-responsive" src="/assets/uploads/2016/12/angular-angular.png" alt="Angular 2 repository Github"/></a>
-{:class="text-center"}
-
-_Hình 1: Repository của Angular 2 trên Github_
-{:class="text-center"}
+<Figure
+  link="https://github.com/angular/angular"
+  target="_blank"
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/angular-angular.png"
+  alt="Angular 2 repository Github"
+  width="1100"
+  height="280"
+  caption="Hình 1: Repository của Angular 2 trên Github"
+/>
 
 ## 1. Giới thiệu.
 
@@ -112,12 +113,14 @@ Quá trình khởi tạo lần đầu tiên có thể mất vài (chục) phút,
 
 Sau khi hoàn thành việc khởi tạo project, chúng ta sẽ có một project với cấu trúc dạng như sau:
 
-![Angular project structure](/assets/uploads/2016/12/1-project-structure.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 2: Project structure_
-{:class="text-center"}
-
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/1-project-structure.png"
+  alt="Angular project structure"
+  width="608"
+  height="860"
+  caption="Hình 2: Project structure"
+/>
 
 **Vậy chúng ta phải bắt đầu từ đâu?**
 
@@ -127,11 +130,14 @@ Một ứng dụng Angular 2 xây dựng trên vô số Component.
 
 Để dễ hiểu thì Component là tất cả những gì mà end-user có thể nhận biết, nó có thể được sử dụng lại nhiều lần trong một ứng dụng. Sau khi tạo xong một project với Angular CLI, chúng ta đã có một Component có tên: `AppComponent` trong file `src/app/app.component.ts`.
 
-![AppComponent](/assets/uploads/2016/12/2-app-comp.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 3: AppComponent_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/2-app-comp.png"
+  alt="Angular AppComponent"
+  width="720"
+  height="365"
+  caption="Hình 3: AppComponent"
+/>
 
 Đoạn code trên có ý nghĩa gì?
 
@@ -141,37 +147,49 @@ _Hình 3: AppComponent_
 
 Nó là một khai báo (Decorator) cho class ngay sau đó, để chỉ ra rằng class đó là một Angular component, bên cạnh đó nó còn cung cấp các configuration metadata để Angular 2 biết cách tạo ra Component tương ứng.
 
-![@Component](/assets/uploads/2016/12/3-at-component.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 4: `@Component`_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/3-at-component.png"
+  alt="Angular Decorator @Component"
+  width="1104"
+  height="585"
+  caption="Hình 4: `@Component`"
+/>
 
 `@Component` yêu cầu tối thiểu phải truyền vào một Javascript object với ít nhất thuộc tính: `selector` và `templateUrl` hoặc `template`.
 
-Dòng 4: là `selector` hay mục đích chỉ ra rằng, khi trong template có một thẻ dạng như thẻ HTML có tên `app-root` thì Angular sẽ hiển thị Component khai báo bên dưới vào đó. Bạn có thể nhìn thấy thẻ này trong file `src/index.html`. Trong trường hợp component này, khi render sẽ thay thế phần Text Node `Loading&#8230`.
+Dòng 4: là `selector` hay mục đích chỉ ra rằng, khi trong template có một thẻ dạng như thẻ HTML có tên `app-root` thì Angular sẽ hiển thị Component khai báo bên dưới vào đó. Bạn có thể nhìn thấy thẻ này trong file `src/index.html`. Trong trường hợp component này, khi render sẽ thay thế phần Text Node `Loading...`.
 
-![app-root](/assets/uploads/2016/12/app-root.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 5: Custom tag `<app-root>` – selector_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/app-root.png"
+  alt="Angular Component selector app-root"
+  width="935"
+  height="367"
+  caption="Hình 5: Custom tag `<app-root>` – selector"
+/>
 
 Dòng 5: `templateUrl` sử dụng để link đến phần template tương ứng của component này. Trong một số trường hợp, các bạn có thể sử dụng inline template mà không cần tạo file html template riêng lẻ, khi đó bạn thay thế việc sử dụng property `templateUrl` thành property `template`.
 
 > Lưu ý, nếu bạn dùng property `template`, bạn có thể sử dụng `multi-line string` bằng việc bao đóng string trong cặp dấu <code>``</code>.
 
-![templateUrl](/assets/uploads/2016/12/templateUrl.png){:class="img-responsive"}
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/templateUrl.png"
+  alt="Angular Component templateUrl"
+  width="460"
+  height="280"
+  caption="Hình 6: templateUrl content"
+/>
 
-_Hình 6: templateUrl content_
-{:class="text-center"}
-
-![template](/assets/uploads/2016/12/template.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 7: inline template content_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/template.png"
+  alt="Angular Component inline template"
+  width="530"
+  height="300"
+  caption="Hình 7: inline template content"
+/>
 
 Dòng 6: `styleUrls` để link đến phần style tương ứng cho component này, giá trị của nó là 1 mảng các files style. Tương tự như template, style có thể sử dụng inline style bằng cách thay vì dùng `styleUrls` bạn sẽ dùng `styles` property, nó cũng nhận giá trị là một mảng các string khai báo rule, bạn có thể sử dụng multi-line string như `template` property.
 
@@ -220,11 +238,14 @@ Mỗi ứng dụng Angular đều có ít nhất một Module đó là root Modu
 
 Thông thường nó được đặt tên là `AppModule`, nhưng bạn hoàn toàn có thể đặt bất kỳ tên nào nếu muốn. Bạn có thể tìm thấy Module đó trong file `src/app/app.module.ts`.
 
-![NgModule root Module](/assets/uploads/2016/12/NgModule-root-Module-1.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 8: `AppModule` – root Module_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/NgModule-root-Module-1.png"
+  alt="Angular NgModule root Module"
+  width="900"
+  height="460"
+  caption="Hình 8: `AppModule` – root Module"
+/>
 
 Trong class này chúng ta cũng nhìn thấy phần quen thuộc như trong định nghĩa của một Component: các phần `import`, `export`.
 
@@ -267,11 +288,14 @@ Ngoài ra còn có **`exports` array** là list các component mà Module này 
 
 Các bạn có thể tìm thấy câu trả lời trong file `src/main.ts`.
 
-![Angular 2 main](/assets/uploads/2016/12/main-1.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 9: `main.ts`_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/main-1.png"
+  alt="Angular 2 main file"
+  width="1104"
+  height="746"
+  caption="Hình 9: `main.ts`"
+/>
 
 Ở đây, chúng ta đã sử dụng platformBrowser, sau đó bootstrapModule là root Module – AppModule.
 
@@ -279,33 +303,46 @@ Vậy là tất cả đã rõ, chúng ta có Component, có root Module, có nơ
 
 Các bạn vào Command Prompt/Terminal sau đó gõ lệnh `ng serve` và nhấn enter để Angular CLI thực hiện công việc của nó.
 
-![ng serve](/assets/uploads/2016/12/ng-serve.png){:class="img-responsive"}
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/ng-serve.png"
+  alt="ng serve command"
+  width="580"
+  height="320"
+  caption="Hình 10: ng serve"
+/>
 
-_Hình 10: ng serve_
-{:class="text-center"}
 
 Sau đó, các bạn mở trình duyệt vào truy cập vào địa chỉ <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a>. Kết quả có dạng như sau.
 
-![first app](/assets/uploads/2016/12/first-app.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 11: first app_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/first-app.png"
+  alt="first Angular app"
+  width="960"
+  height="530"
+  caption="Hình 11: first app"
+/>
 
 Bây giờ, chúng ta thay đổi chút, mình sẽ thay đổi title trong AppComponent thành một chuỗi khác, và xem kết quả.
 
-![Change AppComponent](/assets/uploads/2016/12/change-app-component.png){:class="img-responsive"}
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/change-app-component.png"
+  alt="Edit AppComponent"
+  width="730"
+  height="275"
+  caption="Hình 12: edit AppComponent"
+/>
 
-_Hình 12: edit AppComponent_
-{:class="text-center"}
-
-![result](/assets/uploads/2016/12/result.png){:class="img-responsive"}
-{:class="text-center"}
-
-_Hình 13: result_
-{:class="text-center"}
+<Figure
+  className="post-figure"
+  src="@public/assets/uploads/2016/12/result.png"
+  alt="result"
+  width="960"
+  height="530"
+  caption="Hình 13: result"
+/>
 
 ## 4. Lời kết
 
