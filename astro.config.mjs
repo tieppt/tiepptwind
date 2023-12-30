@@ -39,9 +39,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap({
-      lastmod: true,
-    }),
+    sitemap(),
     mdx(),
     icon({
       include: {
