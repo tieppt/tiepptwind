@@ -24,6 +24,7 @@ export interface Post {
   description?: string;
   /**  */
   image?: ImageMetadata | string;
+  isFeaturedImageEnabled?: boolean;
 
   /**  */
   category?: string;

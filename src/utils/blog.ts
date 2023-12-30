@@ -60,6 +60,7 @@ const getNormalizedPost = async (
     excerpt,
     description,
     image,
+    isFeaturedImageEnabled,
     tags: rawTags = [],
     categories: rawCategories = [],
     category: rawCategory,
@@ -89,6 +90,7 @@ const getNormalizedPost = async (
     excerpt,
     description,
     image,
+    isFeaturedImageEnabled,
 
     category,
     tags,
