@@ -50,6 +50,7 @@ const postCollection = defineCollection({
     publishDate: z.date().optional(),
     updateDate: z.date().optional(),
     draft: z.boolean().optional(),
+    permalink: z.string().optional(),
 
     title: z.string(),
     excerpt: z.string().optional(),

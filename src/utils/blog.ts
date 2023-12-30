@@ -66,10 +66,11 @@ const getNormalizedPost = async (
     category: rawCategory,
     author,
     draft = false,
+    permalink,
     metadata = {},
   } = data;
 
-  const slug = cleanSlug(rawSlug); // cleanSlug(rawSlug.split('/').pop());
+  const slug = cleanSlug(permalink ?? rawSlug); // cleanSlug(rawSlug.split('/').pop());
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
@@ -226,7 +227,6 @@ export const getStaticPathsBlogCategory = async ({
   const categories = new Set<string>();
   posts.map((post) => {
     extractPostCategory(categories, post.category);
-    console.log('===', post.categories);
     Array.isArray(post.categories) &&
       post.categories.map((category) =>
         extractPostCategory(categories, category),

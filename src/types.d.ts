@@ -9,7 +9,7 @@ export interface Post {
   slug: string;
 
   /**  */
-  permalink: string;
+  permalink?: string;
 
   /**  */
   publishDate: Date;
