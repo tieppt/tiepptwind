@@ -59,7 +59,16 @@ const postCollection = defineCollection({
     isFeaturedImageEnabled: z.boolean().optional(),
 
     category: z.string().optional(),
+    rawCategory: z.string().optional(),
     categories: z.array(z.string()).optional(),
+    processedCategories: z
+      .array(
+        z.object({
+          raw: z.string(),
+          slug: z.string(),
+        }),
+      )
+      .optional(),
     tags: z.array(z.string()).optional(),
     processedTags: z
       .array(

@@ -17,15 +17,29 @@ export interface Props {
 
 const { post, url } = Astro.props;
 const { Content } = post;
+const categories = post.category
+  ? [{ slug: post.category, raw: post.rawCategory }]
+  : post.processedCategories ?? [];
 ---
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
     <header class={post.image ? '' : ''}>
       <div
-        class="flex justify-between flex-col sm:flex-row single-post-container mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center"
+        class="flex flex-col single-post-container mx-auto mt-0 mb-2 px-4 sm:px-6"
       >
         <p>
+          {
+            !!post.author && (
+              <span>
+                <Icon
+                  name="tabler:writing"
+                  class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
+                />{' '}
+                {post.author} ·{' '}
+              </span>
+            )
+          }
           <Icon
             name="tabler:clock"
             class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
@@ -33,22 +47,31 @@ const { Content } = post;
           <time datetime={String(post.publishDate)} class="inline-block"
             >{getFormattedDate(post.publishDate)}</time
           >
-          {
-            post.category && (
-              <>
-                {' '}
-                ·{' '}
-                <a
-                  class="capitalize hover:underline inline-block"
-                  href={getPermalink(post.category, 'category')}
-                >
-                  {post.category.replaceAll('-', ' ')}
-                </a>
-              </>
-            )
-          }
+
           {post.readingTime && <> · {post.readingTime} min read</>}
         </p>
+        {
+          categories.length > 0 && (
+            <p>
+              <Icon
+                name="tabler:category-2"
+                class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
+              />
+              {categories.map((category) => (
+                <>
+                  {' '}
+                  ·{' '}
+                  <a
+                    class="capitalize hover:underline inline-block"
+                    href={getPermalink(category.slug, 'category')}
+                  >
+                    {category.raw}
+                  </a>
+                </>
+              ))}
+            </p>
+          )
+        }
       </div>
       <h1
         class="px-4 sm:px-6 single-post-container mx-auto text-3xl md:text-4xl font-bold leading-tighter tracking-tighter font-heading"

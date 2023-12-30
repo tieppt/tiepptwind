@@ -83,9 +83,14 @@ const getNormalizedPost = async (
     tags.add(slug);
     processedTags.push({ raw: tag, slug });
   });
-  const categories = rawCategories.map((category: string) =>
-    cleanSlug(category),
-  );
+  const categories = new Set<string>();
+  const processedCategories: ProcessedPostTerm[] = [];
+  rawCategories.forEach((category: string) => {
+    const slug = cleanSlug(category);
+    if (categories.has(slug)) return;
+    categories.add(slug);
+    processedCategories.push({ raw: category, slug });
+  });
 
   return {
     id,
@@ -102,9 +107,11 @@ const getNormalizedPost = async (
     isFeaturedImageEnabled,
 
     category,
+    rawCategory,
     tags: [...tags],
     processedTags,
-    categories,
+    categories: [...categories],
+    processedCategories,
     author,
 
     draft,
@@ -234,12 +241,18 @@ export const getStaticPathsBlogCategory = async ({
 
   const posts = await fetchPosts();
   const categories = new Set<string>();
+  const rawCategories = new Map<string, string>();
   posts.map((post) => {
-    extractPostCategory(categories, post.category);
-    Array.isArray(post.categories) &&
-      post.categories.map((category) =>
-        extractPostCategory(categories, category),
-      );
+    if (post.category) {
+      extractPostCategory(categories, post.category);
+      rawCategories.set(post.category, post.rawCategory!);
+    }
+    Array.isArray(post.processedCategories) &&
+      post.processedCategories.forEach((category) => {
+        if (rawCategories.has(category.slug)) return;
+        extractPostCategory(categories, category.slug);
+        rawCategories.set(category.slug, category.raw);
+      });
   });
 
   return Array.from(categories).flatMap((category) =>
@@ -254,7 +267,12 @@ export const getStaticPathsBlogCategory = async ({
       {
         params: { category: category, blog: CATEGORY_BASE || undefined },
         pageSize: blogPostsPerPage,
-        props: { category },
+        props: {
+          category,
+          rawCategory: rawCategories.get(category),
+          categories,
+          processedCategories: rawCategories,
+        },
       },
     ),
   );

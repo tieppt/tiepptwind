@@ -34,11 +34,15 @@ export interface Post {
   /**  */
   category?: string;
   /**  */
+  rawCategory?: string;
+  /**  */
   tags?: Array<string>;
 
   processedTags?: Array<ProcessedPostTerm>;
   /**  */
   categories?: Array<string>;
+
+  processedCategories?: Array<ProcessedPostTerm>;
   /**  */
   author?: string;
 
