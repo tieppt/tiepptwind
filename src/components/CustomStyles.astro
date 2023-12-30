@@ -1,5 +1,5 @@
 ---
-// import '@fontsource-variable/inter';
+import '@fontsource-variable/inter';
 
 // 'DM Sans'
 // Nunito
@@ -19,19 +19,9 @@
 // Urbanist
 ---
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  rel="stylesheet"
-/>
-<link rel="stylesheet" href="/prism/themes/prism-github-skeleton.css" />
-<link rel="stylesheet" href="/prism/themes/prism-github-default-light.css" />
-<!-- <link rel="stylesheet" href="/prism/themes/prism-github-dimmed-dark.css"> -->
-<link rel="stylesheet" href="/prism/themes/prism-github-default-dark.css" />
 <style is:inline is:global>
   :root {
-    --aw-font-sans: 'Inter';
+    --aw-font-sans: 'Inter Variable';
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
@@ -52,7 +42,7 @@
   }
 
   .dark {
-    --aw-font-sans: 'Inter';
+    --aw-font-sans: 'Inter Variable';
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
@@ -69,5 +59,21 @@
       background-color: black;
       color: snow;
     }
+  }
+
+  :root:not(.dark) .astro-code {
+    border-width: 1px;
+  }
+
+  .dark .astro-code,
+  .dark .astro-code span,
+  .dark .shiki,
+  .dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 </style>
