@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { SITE } from '~/utils/config';
 import { getHomePermalink } from '~/utils/permalinks';
+import Image from '../common/Image.astro';
 
 interface Link {
   text?: string;
@@ -46,9 +47,20 @@ const {
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}
-            >{SITE?.name}</a
+          <a
+            class="inline-flex items-center font-bold text-xl"
+            href={getHomePermalink()}
           >
+            <Image
+              class="mr-2"
+              loading="eager"
+              width="36"
+              height="36"
+              src={SITE.logo}
+              alt="site-logo"
+            />
+            {SITE?.name}
+          </a>
         </div>
         {
           secondaryLinks?.length > 0 && (

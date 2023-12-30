@@ -7,6 +7,8 @@ import type { MetaData } from '~/types';
 export interface SiteConfig {
   name: string;
   site?: string;
+  subtitle?: string;
+  logo?: string;
   base?: string;
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
@@ -69,6 +71,8 @@ export interface AnalyticsConfig {
 
 const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   site?: SiteConfig;
+  logo?: string;
+  subtitle?: string;
   metadata?: MetaDataConfig;
   i18n?: I18NConfig;
   apps?: {
@@ -88,6 +92,7 @@ const getSite = () => {
     trailingSlash: false,
 
     googleSiteVerificationId: '',
+    logo: '',
   };
 
   return merge({}, _default, config?.site ?? {}) as SiteConfig;

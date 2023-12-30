@@ -1,9 +1,21 @@
 ---
 import { SITE } from '~/utils/config';
+import Image from './common/Image.astro';
 ---
 
 <span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+  class="flex items-center self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
 >
-  🚀 {SITE?.name}
+  <Image
+    class="mr-2"
+    loading="eager"
+    width="36"
+    height="36"
+    src={SITE.logo}
+    alt="site-logo"
+  />
+  <span class="inline-flex flex-col">
+    {SITE?.name}
+    <span class="text-sm font-normal">{SITE?.subtitle}</span>
+  </span>
 </span>

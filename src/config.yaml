@@ -1,6 +1,8 @@
 site:
-  name: TiepPhan
+  name: Tiep Phan
+  subtitle: 'Lập trình thật kỳ diệu'
   site: 'https://next.tiepphan.com'
+  logo: '@public/assets/images/logo.svg'
   base: '/'
   trailingSlash: false
 
@@ -9,7 +11,7 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: TiepPhan
+    default: Tiep Phan
     template: '%s — Blog'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
