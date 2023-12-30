@@ -13,14 +13,14 @@ metadata:
   title:
     default: Tiep Phan
     template: '%s — Blog'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "Tiep Phan Blogs."
   robots:
     index: true
     follow: true
   openGraph:
     site_name: TiepPhan
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/hero-laptop.jpg'
         width: 1200
         height: 628
     type: website
