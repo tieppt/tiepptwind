@@ -15,12 +15,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page, tag } = Astro.props as Props;
+const { page, raw } = Astro.props as Props;
 
 const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `Posts by tag '${tag}'${
+  title: `Posts by tag '${raw}'${
     currentPage > 1 ? ` — Page ${currentPage} ` : ''
   }`,
   robots: {
@@ -32,7 +32,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline>Tag: {tag}</Headline>
+    <Headline>Tag: {raw}</Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

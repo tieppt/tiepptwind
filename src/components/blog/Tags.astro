@@ -5,14 +5,14 @@ import { APP_BLOG } from '~/utils/config';
 import type { Post } from '~/types';
 
 export interface Props {
-  tags: Post['tags'];
+  processedTags: Post['processedTags'];
   class?: string;
   title?: string | undefined;
   isCategory?: boolean;
 }
 
 const {
-  tags,
+  processedTags,
   class: className = 'text-sm',
   title = undefined,
   isCategory = false,
@@ -20,7 +20,7 @@ const {
 ---
 
 {
-  tags && Array.isArray(tags) && (
+  processedTags && Array.isArray(processedTags) && (
     <>
       <>
         {title !== undefined && (
@@ -30,16 +30,16 @@ const {
         )}
       </>
       <ul class={className}>
-        {tags.map((tag) => (
-          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+        {processedTags.map((tag) => (
+          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 font-medium">
             {!APP_BLOG?.tag?.isEnabled ? (
               tag
             ) : (
               <a
-                href={getPermalink(tag, isCategory ? 'category' : 'tag')}
+                href={getPermalink(tag.slug, isCategory ? 'category' : 'tag')}
                 class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
               >
-                {tag}
+                {tag.raw}
               </a>
             )}
           </li>

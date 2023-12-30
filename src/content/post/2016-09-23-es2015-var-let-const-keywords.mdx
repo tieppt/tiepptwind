@@ -1,32 +1,25 @@
 ---
-id: 9
 title: ES2015 var, let và const keywords
 publishDate: 2016-09-23T01:59:20+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=9
 permalink: /es2015-var-let-const-keywords/
 description: 'Giới thiệu chi tiết về đặc điểm của let, var, const trong ES2015'
 image: '@public/assets/uploads/2016/09/es2015-logo.png'
 categories:
-  - Lập Trình
   - Programming
 tags:
   - const
   - ES2015
-  - Javascript
+  - JavaScript
   - let
   - var
 ---
-
-#  ES2015 var, let và const keywords
-
 
 ## Giới thiệu:
 
 ES2015 giới thiệu một số tính năng mới, trong đó phải kể đến `biến cục bộ theo khối lệnh` và `hằng số`.
 
 Vậy nếu đã có cách khai báo sử dụng `var` thì tại sao lại cần `let` và `const`. Trong bài viết này, tôi sẽ giới thiệu chi tiết về đặc điểm của chúng.
-
 
 ## Function scope và variable hoisting
 
@@ -48,7 +41,9 @@ console.log(doubleA);
 
 Kết quả nhận được là ta có thông báo lỗi biến `doubleA` chưa được khai báo:
 
-> `Uncaught ReferenceError: doubleA is not defined`
+<div class="reset-prose">
+  > `Uncaught ReferenceError: doubleA is not defined`
+</div>
 
 Trong Javascript không có biến cục bộ của khối lệnh và biến có thể sử dụng trước khi nó khai báo mà không sinh ra lỗi. Chẳng hạn, trong đoạn code sau:
 
@@ -62,7 +57,7 @@ var doubleA = 5;
 
 Lúc này, kết quả nhận được của chúng ta không còn giống như kết quả lúc trước nữa. Kết quả hiển thị trong console lúc này không còn là lỗi, mà là giá trị mặc định của biến khi chưa được khởi tạo:
 
-> `undefined`
+<div class="reset-prose">> `undefined`</div>
 
 Tại sao lại có sự khác biệt như thế. Tất cả phải chăng là magic. Ở đây Javascript có 1 khái niệm là variable hoisting. Các biến dù được khai báo ở bất kỳ đâu trong hàm, đều được di chuyển lên đầu tiên. Chúng ta có thể viết lại đoạn code trên như sau:
 
@@ -94,7 +89,7 @@ console.log(message);
 
 Nhưng kết quả nhận được của chúng ta lúc này vẫn là:
 
-> `undefined`
+<div class="reset-prose">> `undefined`</div>
 
 Nguyên nhân là trong Javascript không có biến cục bộ theo khối lệnh, biến `message` được khai báo trong block `if` nhưng nó bị `hoisting` lên trên bắt đầu hàm, lúc này kết quả nhận được sẽ là `undefined`.
 
@@ -106,7 +101,7 @@ function blockScope() {
   var arr = [];
 
   for (var i = 0; i < 5; ++i) {
-    arr.push(function() {
+    arr.push(function () {
       console.log(i * i);
     });
   }
@@ -119,7 +114,7 @@ blockScope();
 
 Kết quả nhận được trong đoạn code trên như sau:
 
-> `25`
+<div class="reset-prose">> `25`</div>
 
 Lúc này chúng ta mắt chữ A, mồm chữ O, lẩm bẩm wtf, mình đã làm sai chỗ nào, sao kết quả lại sai tè le thế.
 
@@ -133,7 +128,7 @@ function blockScope() {
   var arr = [];
 
   for (let i = 0; i < 5; ++i) {
-    arr.push(function() {
+    arr.push(function () {
       console.log(i * i);
     });
   }
@@ -146,7 +141,7 @@ blockScope();
 
 Kết quả nhận được trong đoạn code trên như sau:
 
-> `9`
+<div class="reset-prose">> `9`</div>
 
 Hoặc như đoạn code sau:
 
@@ -165,7 +160,7 @@ blockScope();
 
 Kết quả chúng ta nhận được cái lỗi to uỳnh:
 
-> `ReferenceError: i is not defined`
+<div class="reset-prose">> `ReferenceError: i is not defined`</div>
 
 ## Constant
 
@@ -183,7 +178,7 @@ constant();
 
 Kết quả, bạn nhận được là 1 thông báo lỗi như sau:
 
-> `TypeError: Assignment to constant variable`
+<div class="reset-prose">> `TypeError: Assignment to constant variable`</div>
 
 Vậy là chúng ta không thể thực hiện phép gán trên hằng số được. Nhưng bạn cần lưu ý điều này, bạn chỉ không gán được, nhưng với các biến kiểu object, thì có thể thay đổi nội tại biến đó, chỉ là không gán cho một biến mới thôi.
 
@@ -192,8 +187,8 @@ Hãy xem ví dụ sau nhé:
 ```js
 function constant() {
   'use strict';
-  const obj = {'name': 'constant'};
-  
+  const obj = { name: 'constant' };
+
   obj.type = 'Something go wrong!';
   console.log(obj);
 }
@@ -210,16 +205,16 @@ Kết quả nhận được như sau:
 }
 ```
 
-Tương tự như thế cho Array, với các đoạn xử lý không thay đổi con trỏ của biến thì không bị lỗi khi sử dụng _const, _chỉ khi nào chúng ta gán biến đó bằng 1 biến khác thì mới bị lỗi.
+Tương tự như thế cho Array, với các đoạn xử lý không thay đổi con trỏ của biến thì không bị lỗi khi sử dụng \_const, _chỉ khi nào chúng ta gán biến đó bằng 1 biến khác thì mới bị lỗi.
 
 ```js
 function constant() {
   'use strict';
-  const obj = {'name': 'constant'};
+  const obj = { name: 'constant' };
 
   obj = {
-    'name': 'another object name'
-  }
+    name: 'another object name',
+  };
 }
 
 constant();
@@ -234,9 +229,9 @@ function constant() {
   'use strict';
   const arr = [];
   arr.push(1, 2, 3);
-  
+
   console.log(arr);
-  
+
   arr.splice(1, 1);
   console.log(arr);
   arr.push(4, 7, 9);
@@ -251,15 +246,14 @@ constant();
 Kết quả có được như sau.
 
 ```js
-[1, 2, 3]
-[1, 3]
-[1, 3, 4, 7, 9]
-[3, 4, 7, 9]
+[1, 2, 3][(1, 3)][(1, 3, 4, 7, 9)][(3, 4, 7, 9)];
 ```
 
 ## Tổng kết
 
 Trong bài viết này, tôi đã chỉ ra 1 số ví dụ cơ bản về việc sử dụng các cách thức khai báo biến và scope của các biến trong ngữ cảnh tương ứng sử dụng các tính năng cung cấp bởi ES2015. Hi vọng các bạn hiểu được cơ bản cách dùng của chúng để sử dụng trong công việc của mình. Thank you!
+
+## Tham khảo
 
 MDN var: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var</a>
 

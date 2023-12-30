@@ -1,7 +1,7 @@
 import type { PaginateFunction } from 'astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import type { Post } from '~/types';
+import type { Post, ProcessedPostTerm } from '~/types';
 import { APP_BLOG } from '~/utils/config';
 import {
   cleanSlug,
@@ -74,7 +74,15 @@ const getNormalizedPost = async (
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
-  const tags = rawTags.map((tag: string) => cleanSlug(tag));
+  // to avoid duplicates tags
+  const tags = new Set<string>();
+  const processedTags: ProcessedPostTerm[] = [];
+  rawTags.forEach((tag: string) => {
+    const slug = cleanSlug(tag);
+    if (tags.has(slug)) return;
+    tags.add(slug);
+    processedTags.push({ raw: tag, slug });
+  });
   const categories = rawCategories.map((category: string) =>
     cleanSlug(category),
   );
@@ -94,7 +102,8 @@ const getNormalizedPost = async (
     isFeaturedImageEnabled,
 
     category,
-    tags,
+    tags: [...tags],
+    processedTags,
     categories,
     author,
 
@@ -261,9 +270,13 @@ export const getStaticPathsBlogTag = async ({
 
   const posts = await fetchPosts();
   const tags = new Set<string>();
-  posts.map((post) => {
-    Array.isArray(post.tags) &&
-      post.tags.map((tag) => tags.add(tag.toLowerCase()));
+  const rawTags = new Map<string, string>();
+  posts.forEach((post) => {
+    Array.isArray(post.processedTags) &&
+      post.processedTags.forEach((tag) => {
+        tags.add(tag.slug);
+        rawTags.set(tag.slug, tag.raw);
+      });
   });
 
   return Array.from(tags).flatMap((tag) =>
@@ -276,7 +289,7 @@ export const getStaticPathsBlogTag = async ({
       {
         params: { tag: tag, blog: TAG_BASE || undefined },
         pageSize: blogPostsPerPage,
-        props: { tag },
+        props: { tag, raw: rawTags.get(tag) },
       },
     ),
   );

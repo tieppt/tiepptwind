@@ -1,6 +1,11 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { HTMLAttributes, ImageMetadata } from 'astro/types';
 
+export interface ProcessedPostTerm {
+  raw: string;
+  slug: string;
+}
+
 export interface Post {
   /** A unique ID number that identifies a post. */
   id: string;
@@ -30,6 +35,8 @@ export interface Post {
   category?: string;
   /**  */
   tags?: Array<string>;
+
+  processedTags?: Array<ProcessedPostTerm>;
   /**  */
   categories?: Array<string>;
   /**  */

@@ -94,6 +94,14 @@
   overflow: hidden;
 }
 
+.reset-prose {
+  blockquote:first-of-type > * {
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+}
 /* To deprecated */
 
 .dd *:first-child {
