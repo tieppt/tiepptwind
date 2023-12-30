@@ -8,6 +8,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
+import rehypePrism from 'rehype-prism-plus';
 import tasks from './src/utils/tasks';
 
 import {
@@ -74,18 +75,24 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin],
-    shikiConfig: {
-      // Choose from Shiki's built-in themes (or add your own)
-      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'github-dark-dimmed',
-      // Add custom languages
-      // Note: Shiki has countless langs built-in, including .astro!
-      // https://github.com/shikijs/shiki/blob/main/docs/languages.md
-      // langs: [],
-      // Enable word wrap to prevent horizontal scrolling
-      // wrap: false,
-    },
+    rehypePlugins: [
+      responsiveTablesRehypePlugin,
+      [rehypePrism, { showLineNumbers: false }],
+    ],
+    // Can be 'shiki' (default), 'prism' or false to disable highlighting
+    syntaxHighlight: 'prism',
+
+    // shikiConfig: {
+    //   // Choose from Shiki's built-in themes (or add your own)
+    //   // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+    //   theme: 'github-dark-dimmed',
+    //   // Add custom languages
+    //   // Note: Shiki has countless langs built-in, including .astro!
+    //   // https://github.com/shikijs/shiki/blob/main/docs/languages.md
+    //   // langs: [],
+    //   // Enable word wrap to prevent horizontal scrolling
+    //   // wrap: false,
+    // },
   },
 
   vite: {

@@ -1,0 +1,19 @@
+/**
+ * GitHub's Default Light theme for prism.js
+ * @author Jongwoo Han (@jongwooo)
+ */
+
+/* @import url("prism-github-skeleton.css"); */
+
+:root:not(.dark) {
+  --color-fg-default: #24292f;
+  --color-bg-code-block: #f6f8fa;
+  --color-bg-inline-code-block: rgb(175 184 193 / 20%);
+  --color-gray: #6e7781;
+  --color-red: #cf222e;
+  --color-green: #116329;
+  --color-blue: #0550ae;
+  --color-indigo: #0a3069;
+  --color-purple: #8250df;
+  --color-brown: #953800;
+}
