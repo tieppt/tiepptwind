@@ -14,7 +14,6 @@ categories:
 
 tags:
   - Angular
-  - Angular 2
 
 ---
 
