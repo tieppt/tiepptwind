@@ -57,16 +57,15 @@ const categories = post.category
                 name="tabler:category-2"
                 class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400"
               />
-              {categories.map((category) => (
+              {categories.map((category, index) => (
                 <>
-                  {' '}
-                  ·{' '}
                   <a
                     class="capitalize hover:underline inline-block"
                     href={getPermalink(category.slug, 'category')}
                   >
                     {category.raw}
                   </a>
+                  {index < categories.length - 1 && ' · '}
                 </>
               ))}
             </p>
