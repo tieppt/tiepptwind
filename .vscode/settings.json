@@ -8,7 +8,7 @@
     "typescriptreact" // Enable .tsx
   ],
   "files.associations": {
-    "*.mdx": "markdown"
+    "*.mdx": "mdx"
   },
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
