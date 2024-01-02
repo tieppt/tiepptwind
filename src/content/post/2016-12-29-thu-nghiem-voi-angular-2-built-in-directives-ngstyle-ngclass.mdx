@@ -1,9 +1,7 @@
 ---
-id: 225
 title: 'Thử Nghiệm Với Angular 2 Phần 4: Built-in Directives NgStyle, NgClass'
 publishDate: 2016-12-29T06:38:51+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=225
 permalink: /thu-nghiem-voi-angular-2-built-in-directives-ngstyle-ngclass/
 description: 'Trong bài học này, chúng ta sẽ tìm hiểu về những Attribute Directives như NgStyle NgClass và property binding cho class, style'
 image: '@public/assets/uploads/2016/12/angular2-PHAN4.jpg'
@@ -23,28 +21,26 @@ tags:
   - Style Component
   - Web Dev
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Built-in Directives NgStyle, NgClass
-{:.no_toc}
+
+## Built-in Directives NgStyle, NgClass
 
 Trong những bài trước của series **Thử Nghiệm Với Angular 2** mình đã giới thiệu một số <a href="https://angular.io/docs/ts/latest/guide/structural-directives.html" target="_blank">Structual Directives</a> và hướng dẫn <a href="/thu-nghiem-voi-angular-2-style-component-view-encapsulation/" target="_blank">Style cho Component, View Encapsulation</a>. Trong bài học này, chúng ta sẽ tìm hiểu về những Attribute Directives như <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngStyle" target="_blank">NgStyle</a>, <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngClass" target="_blank">NgClass </a>và property binding cho class, style.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## Style binding
 
 Cú pháp:
 
 ```html
-[style.style-property]="expression"
-// or camel case
-[style.styleProperty]="expression"
-// or
-[style.style-property.<unit>]="expression"
-// or
-[style.styleProperty.<unit>]="expression"
+<element [style.style-property]="expression"></element>
+<!-- or camel case -->
+<element [style.styleProperty]="expression"></element>
+<!-- or dash case with unit -->
+<element [style.style-property.<unit>]="expression"></element>
+<!-- or camel case with unit -->
+<element [style.styleProperty.<unit>]="expression"></element>
 ```
 
 Example:
@@ -103,7 +99,7 @@ objStyle = {
 Cú pháp:
 
 ```html
-[class.<className>]="expression"
+<element [class.<className>]="expression"></element>
 ```
 
 Example:
@@ -159,15 +155,15 @@ Example:
 <button class="btn" [ngClass]="'active btn-primary'">
     String binding
 </button>
-// or
+<!-- or -->
 <button class="btn" ngClass="active btn-primary">
     String binding
 </button>
-// or
+<!-- or -->
 <button class="btn" [ngClass]="['active', 'btn-primary']">
     Array binding
 </button>
-// or
+<!-- or -->
 <button class="btn" [ngClass]="{active: tabIndex == 1}">
     Object binding
 </button>
@@ -175,9 +171,7 @@ Example:
 
 ## Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/D45vVWG3hpU" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="D45vVWG3hpU" />
 
 ## Tham khảo
 
