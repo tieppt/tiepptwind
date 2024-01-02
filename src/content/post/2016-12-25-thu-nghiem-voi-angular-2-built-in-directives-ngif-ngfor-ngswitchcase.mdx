@@ -22,7 +22,7 @@ tags:
   - NgSwitchCase
   - Web Dev
 ---
-
+import Youtube from '~/components/ui/Youtube.astro';
 
 Xin chào các bạn, đây là bài học thứ hai trong series **Thử Nghiệm Với Angular 2**, trong bài trước mình đã giới thiệu về Angular 2 Component và Data Binding. Bài học này chúng ta sẽ tìm hiểu về built-in directives NgIf, NgFor, NgSwitchCase trong Angular.
 
@@ -36,7 +36,7 @@ Xin chào các bạn, đây là bài học thứ hai trong series **Thử Nghi�
 
 Trong bài này chúng ta sẽ đi tìm hiểu các Directives được cung cấp bởi Angular 2 là **_NgIf_**, **_NgFor_**, **_NgSwitchCase_** qua các ví dụ tiếp nối từ bài học trước.
 
-> Lưu ý: để sử dụng các directives này, bạn cần import <a href="https://angular.io/docs/ts/latest/api/platform-browser/index/BrowserModule-class.html" target="_blank">BrowserModule</a> hoặc <a href="https://angular.io/docs/ts/latest/api/common/index/CommonModule-class.html" target="_blank">CommonModule</a>
+> Lưu ý: để sử dụng các directives này, bạn cần import <a href="https://angular.io/docs/ts/latest/api/platform-browser/index/BrowserModule-class.html" rel="noopener noreferrer" target="_blank">BrowserModule</a> hoặc <a href="https://angular.io/docs/ts/latest/api/common/index/CommonModule-class.html" rel="noopener noreferrer" target="_blank">CommonModule</a>
 
 ## NgIf
 
@@ -44,11 +44,9 @@ Sử dụng khi muốn thêm hoặc xóa bỏ một phần tử khi render. Ví 
 
 Cú pháp:
 
-{% raw %}
 ```html
 <h2 *ngIf="printable">{{ message }}</h2>
 ```
-{% endraw %}
 
 > Lưu ý: đừng quên dấu `*` phía trước `ngIf` directive
 
@@ -58,7 +56,6 @@ Sử dụng khi muốn render một list các phần tử. Ví dụ: render list
 
 Cú pháp:
 
-{% raw %}
 ```html
 <div *ngFor="let contact of contacts">
   <h3>{{ contact.name }}</h3>
@@ -67,9 +64,8 @@ Cú pháp:
   </div>
 </div>
 ```
-{% endraw %}
 
-> Lưu ý: đừng quên dấu `*` phía trước `ngFor` directive và sử dụng cấu trúc `let &#8230; of &#8230;`
+> Lưu ý: đừng quên dấu `*` phía trước `ngFor` directive và sử dụng cấu trúc `let ... of ...`
 
 ### NgSwitchCase
 
@@ -122,9 +118,7 @@ Hoặc:
 
 ## Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/KxvyaY2OY6s" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="KxvyaY2OY6s" />
 
 ## Tham khảo
 
