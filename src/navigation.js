@@ -10,20 +10,16 @@ export const headerData = {
           href: getBlogPermalink(),
         },
         {
-          text: 'Article',
-          href: getPermalink('practical-micro-frontends-angular', 'post'),
+          text: 'Lập trình',
+          href: getPermalink('lap-trinh', 'category'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
+          text: 'Lập trình với Angular',
+          href: getPermalink('lap-trinh-angular', 'category'),
         },
         {
-          text: 'Category Page',
+          text: 'Lập trình Web',
           href: getPermalink('web-development', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
         },
       ],
     },
