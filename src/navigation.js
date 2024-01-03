@@ -90,6 +90,6 @@ export const footerData = {
     },
   ],
   footNote: `
-    All right reserved copyright &copy; Tiep Phan 2017-${now.getFullYear()}
+    &copy; 2016-${now.getFullYear()} Tiep Phan. Some rights reserved. Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License].
   `,
 };
