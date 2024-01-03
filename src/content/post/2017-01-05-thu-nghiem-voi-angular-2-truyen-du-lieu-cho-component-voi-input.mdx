@@ -1,14 +1,12 @@
 ---
-id: 253
 title: 'Thử Nghiệm Với Angular 2 Phần 7: Truyền Dữ Liệu Cho Component Với @Input'
 publishDate: 2017-01-05T11:32:34+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=253
 permalink: /thu-nghiem-voi-angular-2-truyen-du-lieu-cho-component-voi-input/
 description: 'Trong bài học này chúng ta sẽ tìm hiểu việc truyền dữ liệu cho Component trong Angular với @Input decorator.'
 image: '@public/assets/uploads/2017/01/angular2-PHAN7.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -23,15 +21,12 @@ tags:
   - Lập Trình Angular 2
   - Web Dev
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Truyền Dữ Liệu Cho Component Với @Input
-{:.no_toc}
+## Giới thiệu
 
 Trong những bài học trước của series **Thử Nghiệm Với Angular 2**, chúng ta đã tạo ra các Component, hầu hết các Component này chứa dữ liệu của chính nó mà không có sự tương tác với các Component khác. Trong bài học này chúng ta sẽ tìm hiểu việc truyền dữ liệu cho Component với `@Input` decorator, từ cú pháp, đến các chú ý khi thực hiện truyền dữ liệu cho một Component.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## `@Input` sử dụng như thế nào?
 
@@ -46,8 +41,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./contact-image-detail.component.scss']
 })
 export class ContactImageDetailComponent {
-  @Input() round: Boolean = false;
-  @Input() avatarUrl: string = '';
+  @Input() round = false;
+  @Input() avatarUrl = '';
 
   constructor() {}
 }
@@ -74,8 +69,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./contact-image-detail.component.scss']
 })
 export class ContactImageDetailComponent {
-  @Input() round: Boolean = false;
-  _avatarUrl: string = '';
+  @Input() round = false;
+  _avatarUrl = '';
 
   constructor() {}
 
@@ -94,7 +89,7 @@ Cách sử dụng tương tự như ở ví dụ phía trên.
 
 ## Yêu cầu một property nào đó là required cho một Component.
 
-Bạn có thể kiểm tra property trong life-cycle là OnInit hoặc OnChange.
+Bạn có thể kiểm tra property trong life-cycle là `OnInit` hoặc `OnChanges`.
 
 ```ts
 import { Component, OnInit, Input } from '@angular/core';
@@ -105,8 +100,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-image-detail.component.scss']
 })
 export class ContactImageDetailComponent implements OnInit {
-  @Input() round: boolean = false;
-  _avatarUrl: string = '';
+  @Input() round = false;
+  _avatarUrl = '';
 
   constructor() {}
 
@@ -140,8 +135,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./contact-image-detail.component.scss']
 })
 export class ContactImageDetailComponent {
-  @Input() round: Boolean = false;
-  @Input('avatar-url') avatarUrl: string = '';
+  @Input() round = false;
+  @Input('avatar-url') avatarUrl = '';
 
   constructor() {}
 }
@@ -158,8 +153,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-image-detail.component.scss']
 })
 export class ContactImageDetailComponent implements OnInit {
-  @Input() round: Boolean = false;
-  _avatarUrl: string = '';
+  @Input() round = false;
+  _avatarUrl = '';
 
   constructor() {}
 
@@ -206,12 +201,10 @@ import { Component, OnInit, Input } from '@angular/core';
   inputs: ['avatarUrl']
 })
 export class ContactImageDetailComponent implements OnInit {
-  @Input() round: Boolean = false;
-  _avatarUrl: string = '';
+  @Input() round = false;
+  _avatarUrl = '';
 
-  constructor() {
-
-  }
+  constructor() {}
 
   get avatarUrl() {
     return this._avatarUrl;
@@ -241,12 +234,10 @@ import { Component, OnInit, Input } from '@angular/core';
   inputs: ['avatarUrl:avatar-url']
 })
 export class ContactImageDetailComponent implements OnInit {
-  @Input() round: Boolean = false;
-  _avatarUrl: string = '';
+  @Input() round = false;
+  _avatarUrl = '';
 
-  constructor() {
-
-  }
+  constructor() {}
 
   get avatarUrl() {
     return this._avatarUrl;
@@ -264,14 +255,12 @@ export class ContactImageDetailComponent implements OnInit {
 }
 ```
 
-> Lưu ý: alias sẽ có thứ tự `internalProp:externalProp` ví dụ như `avatarUrl:avatar-url`.
+> Lưu ý: alias sẽ có thứ tự `internalProp:externalProp` ví dụ như `avatarUrl:avatar-url`.
 
 ## Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/9DBOFhUis80" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="9DBOFhUis80" />
 
 ## Tham khảo
 
-Documentation: <a href="https://angular.io/docs/ts/latest/cookbook/component-communication.html" target="_blank">https://angular.io/docs/ts/latest/cookbook/component-communication.html</a>
+Documentation: <a href="https://angular.io/docs/ts/latest/cookbook/component-communication.html" target="_blank">https://angular.io/docs/ts/latest/cookbook/component-communication.html</a>

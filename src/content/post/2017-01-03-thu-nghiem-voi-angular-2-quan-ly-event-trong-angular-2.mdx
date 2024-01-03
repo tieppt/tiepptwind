@@ -1,14 +1,12 @@
 ---
-id: 245
 title: 'Thử Nghiệm Với Angular 2 Phần 6: Quản Lý Event Trong Angular 2'
 publishDate: 2017-01-03T17:08:05+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=245
 permalink: /thu-nghiem-voi-angular-2-quan-ly-event-trong-angular-2/
 description: 'Bài học này sẽ củng cố một số kiến thức về Event trong Angular 2 như $event object hay key event filtering.'
 image: '@public/assets/uploads/2017/01/angular2-PHAN6.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -19,22 +17,18 @@ tags:
   - Angular 2 Directives
   - Angular 2 Event
   - Angular Component
-  - Javascript
+  - JavaScript
   - Lập Trình Angular 2
   - Web Dev
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Quản Lý Event Trong Angular 2
-{:.no_toc}
+## Giới thiệu
 
 Trong <a href="/thu-nghiem-voi-angular-2-component-va-data-binding/" target="_blank">bài học đầu tiên</a> của series **Thử Nghiệm Với Angular 2** chúng ta đã làm quen với **Event Binding** trong Angular 2. Bài học này sẽ củng cố một số kiến thức về Event trong Angular 2 như `$event` object hay **key event filtering**.
 
-* ToC
-{:toc}
-{:.tp__toc}
-
-## Giới thiệu
-Angular 2 cung cấp event binding cho bất kỳ event nào của DOM tương ứng như `click`, `keyup`, `keydown`, `mouseover`, &#8230;
+## Event Binding
+Angular 2 cung cấp event binding cho bất kỳ event nào của DOM tương ứng như `click`, `keyup`, `keydown`, `mouseover`, ...
 
 Để binding event cho một phần tử nào bạn chỉ cần bao đóng nó trong cặp dấu `( <event> )` và bên trong là tên của event, vế tiếp theo của binding là một template statement: có thể là một hàm, hay một câu lệnh thực thi một hành động nào đó.
 
@@ -46,7 +40,7 @@ Ví dụ:
 
 ## Thao tác với `$event` object
 
-Angular 2 cung cấp một object tên là $event, khi nó được truyền vào là tham số của hàm handle event thì bạn có thể truy cập vào các thuộc tính mà nó chứa trong đó, chẳng hạn event cho keyboard, mouse.
+Angular 2 cung cấp một object tên là `$event`, khi nó được truyền vào là tham số của hàm handle event thì bạn có thể truy cập vào các thuộc tính mà nó chứa trong đó, chẳng hạn event cho keyboard, mouse.
 
 Ví dụ:
 
@@ -56,8 +50,7 @@ Ví dụ:
 
 ```ts
 export class LoggerKeyUpComponent {
-
-  onKey(event: any) { // without type info
+  onKey(event: Event) {
     // do something with event param
     console.log(event);
   }
@@ -92,7 +85,7 @@ Ví dụ:
 ```ts
 export class KeyUpFilteringComponent {
   value = '';
-  onEnter(event) { 
+  onEnter(event: Event) { 
     // do something
     this.value = event.target.value;
   }
@@ -101,10 +94,8 @@ export class KeyUpFilteringComponent {
 
 ## Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/epA82AYZPck" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="epA82AYZPck" />
 
 ## Tham khảo
 
-Documentation: <a href="https://angular.io/docs/ts/latest/guide/user-input.html" target="_blank">https://angular.io/docs/ts/latest/guide/user-input.html</a>
+Documentation: <a href="https://angular.io/docs/ts/latest/guide/user-input.html" target="_blank">https://angular.io/docs/ts/latest/guide/user-input.html</a>

@@ -1,14 +1,12 @@
 ---
-id: 268
 title: 'Thử Nghiệm Với Angular 2 Phần 8: Component Event Với EventEmitter Và @Output'
 publishDate: 2017-01-06T16:53:27+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=268
 permalink: /thu-nghiem-voi-angular-2-component-event-voi-eventemitter-output/
 description: 'Bài học sẽ giới thiệu cách để Component phát sinh Event để tương tác từ Component con với Component cha.'
 image: '@public/assets/uploads/2017/01/angular2-PHAN8-Componen-Event-Voi-EventEmitter-Va-Output.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -23,21 +21,18 @@ tags:
   - Lập Trình Angular 2
   - Web Dev
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Component Event Với EventEmitter Và `@Output`
-{:.no_toc}
+## Giới thiệu
 
-Sau khi tìm hiểu bài học <a href="/thu-nghiem-voi-angular-2-truyen-du-lieu-cho-component-voi-input/" target="_blank" rel="noopener noreferrer">Truyền Dữ Liệu Cho Component Với `@Input`</a> trong series **Thử Nghiệm Với Angular 2**, chúng ta đã biết cách để Component có thể nhận dữ liệu đầu vào. Bài học &#8220;Component Event Với `EventEmitter` Và `@Output`&#8221; sẽ giới thiệu cách để Component phát sinh Event để tương tác từ Component con với Component cha.
+Sau khi tìm hiểu bài học <a href="/thu-nghiem-voi-angular-2-truyen-du-lieu-cho-component-voi-input/" >Truyền Dữ Liệu Cho Component Với `@Input`</a> trong series **Thử Nghiệm Với Angular 2**, chúng ta đã biết cách để Component có thể nhận dữ liệu đầu vào. Bài học - Component Event Với `EventEmitter` Và `@Output` - sẽ giới thiệu cách để Component phát sinh Event để tương tác từ Component con với Component cha.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## `@Output` sử dụng như thế nào?
 
 Tương tự như `@Input`, việc sử dụng `@Output` cũng rất dễ dàng.
 
-Bạn cần đặt một tên cho event hoặc có thể thêm alias, sau đó gán nó với `@Output` decorator và một phép gán cho một đối tượng thuộc `EventEmitter` như sau:
+Bạn cần đặt một tên cho event hoặc có thể thêm alias, sau đó gán nó với `@Output` decorator và một phép gán cho một đối tượng thuộc `EventEmitter` như sau:
 
 **switches.component.ts**
 ```ts
@@ -55,7 +50,7 @@ import {
   styleUrls: ['./switches.component.scss']
 })
 export class SwitchesComponent implements OnInit {
-  @Input() checked: Boolean = false;
+  @Input() checked = false;
   @Output('checkedChange') change = new EventEmitter<boolean>();
 
   constructor() { }
@@ -65,13 +60,13 @@ export class SwitchesComponent implements OnInit {
 }
 ```
 
-Khi có một hành động nào đó xảy ra, bạn sẽ kích hoạt event đó và trả về kèm theo một giá trị có thể là kiểu primitive hoặc các kiểu phức hợp như object, array, &#8230;
+Khi có một hành động nào đó xảy ra, bạn sẽ kích hoạt event đó và trả về kèm theo một giá trị có thể là kiểu primitive hoặc các kiểu phức hợp như object, array,...
 
 ```ts
 ...
 
 export class SwitchesComponent implements OnInit {
-  ...
+  // ...
   emitChangeValue(event) {
     this.change.emit(event.target.checked);
   }
@@ -102,11 +97,11 @@ export class SwitchesComponent implements OnInit {
 
 **contact-list.component.ts**
 ```ts
-...
+// ...
 
 export class ContactListComponent {
-  ...
-  switchesValueChange(event: boolean, index) {
+  // ...
+  switchesValueChange(event: boolean, index: number) {
     this.contacts[index].avatar.round = event;
   }
 }
@@ -133,7 +128,7 @@ import {
   outputs: ['change:checkedChange']
 })
 export class SwitchesComponent implements OnInit {
-  @Input() checked: boolean = false;
+  @Input() checked = false;
   public change = new EventEmitter<boolean>();
 
   constructor() { }
@@ -146,13 +141,11 @@ export class SwitchesComponent implements OnInit {
 }
 ```
 
-> Lưu ý: alias sẽ có thứ tự `internalEvent:externalEvent` ví dụ như `change:checkedChange`.
+> Lưu ý: alias sẽ có thứ tự `internalEvent:externalEvent` ví dụ như `change:checkedChange`.
 
 ## Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/8uu9hh4_ZSU" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="8uu9hh4_ZSU" />
 
 ## Tham khảo
 
