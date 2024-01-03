@@ -35,6 +35,13 @@ import { UI } from '~/utils/config';
   };
   initTheme();
 
+  /**
+   * Attaches an event listener to the specified selector or elements.
+   *
+   * @param {string|NodeListOf<Element>} selector - The selector or elements to attach the event listener to.
+   * @param {string} event - The event type to listen for.
+   * @param {(event: Event, element: Element) => void} fn - The callback function to execute when the event is triggered.
+   */
   function attachEvent(selector, event, fn) {
     const matches =
       typeof selector === 'string'
