@@ -37,8 +37,10 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline subtitle="A statically generated blog listing page">
-      The Blog
+    <Headline
+      subtitle="Hi, I'm Tiep, and I'm passionate about web development. I started this blog to document my learning journey and share my knowledge and experience with you."
+    >
+      All posts
     </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
