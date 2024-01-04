@@ -255,7 +255,6 @@ Chúng ta có một bảng so sánh như sau:
 ---    | ---      | ---
 **Pull** | **Passive**: produces data when requested. | **Active**: decides when data is requested.
 **Push** | **Active**: produces data at its own pace. | **Passive**: reacts to received data.
-{:class="table table-striped table-hover"}
 
 Ví dụ:
 
