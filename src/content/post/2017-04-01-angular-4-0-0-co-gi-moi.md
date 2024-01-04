@@ -8,7 +8,7 @@ permalink: /angular-4-0-0-co-gi-moi/
 description: 'Tháng 3-2017, Angular team đã phát hành Angular 4, vậy Angular 4 có gì mới, có những gì thay đổi mà chúng ta cần lưu ý. Bài này sẽ giới thiệu cho các bạn những điểm mới trong Angular 4.'
 image: '@public/assets/uploads/2017/03/angular-v4.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming

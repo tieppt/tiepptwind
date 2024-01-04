@@ -8,7 +8,7 @@ permalink: /angular-router-series/
 description: 'Series giới thiệu Angular Router'
 image: '@public/assets/uploads/2019/01/angular-router-p1.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

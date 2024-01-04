@@ -8,7 +8,7 @@ permalink: /rxjs-reactive-programming/
 description: 'Giới thiệu Rxjs và Reactive Programming và ứng dụng trong Angular'
 image: '@public/assets/uploads/2017/09/rxjs-reactive-programming.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development
@@ -55,12 +55,12 @@ Và chúng ta có thể coi mọi thứ là stream: single value, array, event, 
 ![everything-is-a-stream](/assets/uploads/2017/09/everything-is-a-stream.jpg){:class="img-responsive"}
 {:class="text-center"}
 
-Không những thế, khi thao tác với stream, chúng ta có thể có `value`, `error`, hay `complete` signals. Đây là điều mà các API trước đây của các hệ thống event trong Javascript còn thiếu, chúng có qua nhiều interface khác nhau cho các loại event khác nhau, Observable sinh ra để tổng quát hóa các interface đó lại. 
+Không những thế, khi thao tác với stream, chúng ta có thể có `value`, `error`, hay `complete` signals. Đây là điều mà các API trước đây của các hệ thống event trong JavaScript còn thiếu, chúng có qua nhiều interface khác nhau cho các loại event khác nhau, Observable sinh ra để tổng quát hóa các interface đó lại. 
 
 ![figure-stream](/assets/uploads/2017/09/figure-stream.png){:class="img-responsive"}
 {:class="text-center"}
 
-Và Rxjs giúp chúng ta có được **reactive** trong lập trình ứng dụng Javascript:
+Và Rxjs giúp chúng ta có được **reactive** trong lập trình ứng dụng JavaScript:
 
 > Rxjs is a library for composing asynchronous and event-based programs by using observable sequences.
 > 
@@ -81,7 +81,7 @@ Và Rxjs giúp chúng ta có được **reactive** trong lập trình ứng dụ
 * **Schedulers**: một scheduler sẽ điều khiển khi nào một subscription bắt đầu thực thi, và khi nào sẽ gửi tín hiệu đi. (Trong bài này chúng ta sẽ không nói về phần này).
 {:.tpc__list}
 
-## 2. Array Trong Javascript
+## 2. Array Trong JavaScript
 {:#array}
 
 Trước khi bắt đầu với Observable, chúng ta sẽ ôn lại một số kiến thức về Array sẽ giúp ích trong việc tiếp cận Observable.
@@ -204,7 +204,7 @@ console.log(val);
 ### 2.5 Flatten Array
 {:#flatten-array}
 
-Trong nhiều tình huống, chúng ta có các array, bên trong mỗi phần tử có thể là các array khác, lúc này chúng ta có nhiệm vụ làm giảm số chiều (flatten) đi chẳng hạn, chúng ta có thể có đoạn code xử lý sau trong Javascript.
+Trong nhiều tình huống, chúng ta có các array, bên trong mỗi phần tử có thể là các array khác, lúc này chúng ta có nhiệm vụ làm giảm số chiều (flatten) đi chẳng hạn, chúng ta có thể có đoạn code xử lý sau trong JavaScript.
 
 ```ts
 Array.prototype.concatAll = function() {
@@ -241,7 +241,7 @@ OK, chúng ta lại có một số khái niệm mới:
 
 **Pull systems**: Consumer sẽ quyết định khi nào lấy data từ Producer. Producer không quan tâm khi nào data sẽ được gửi đến cho Consumer.
 
-Các `function` trong Javascript là một Pull system. Khi nào lời gọi hàm thì khi đó mới xử lý. Gọi `n` lần thì xử lý `n` lần.
+Các `function` trong JavaScript là một Pull system. Khi nào lời gọi hàm thì khi đó mới xử lý. Gọi `n` lần thì xử lý `n` lần.
 
 Lưu ý: function chỉ trả về 1 giá trị sau khi lời gọi hàm được thực hiện. (một mảng cũng chỉ coi là 1 giá trị, vì nó được trả về 1 lần).
 

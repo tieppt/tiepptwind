@@ -23,7 +23,7 @@ Vậy nếu đã có cách khai báo sử dụng `var` thì tại sao lại cầ
 
 ## Function scope và variable hoisting
 
-Phạm vi của 1 biến trong Javascript phụ thuộc vào nơi biến được khai báo, nếu biến đó khai báo trong 1 hàm, nó là biến local của hàm đó, nếu khai báo bên ngoài 1 hàm, nó là biến global.
+Phạm vi của 1 biến trong JavaScript phụ thuộc vào nơi biến được khai báo, nếu biến đó khai báo trong 1 hàm, nó là biến local của hàm đó, nếu khai báo bên ngoài 1 hàm, nó là biến global.
 
 Ví dụ:
 
@@ -45,7 +45,7 @@ Kết quả nhận được là ta có thông báo lỗi biến `doubleA` chưa 
   > `Uncaught ReferenceError: doubleA is not defined`
 </div>
 
-Trong Javascript không có biến cục bộ của khối lệnh và biến có thể sử dụng trước khi nó khai báo mà không sinh ra lỗi. Chẳng hạn, trong đoạn code sau:
+Trong JavaScript không có biến cục bộ của khối lệnh và biến có thể sử dụng trước khi nó khai báo mà không sinh ra lỗi. Chẳng hạn, trong đoạn code sau:
 
 ```js
 'use strict';
@@ -59,7 +59,7 @@ Lúc này, kết quả nhận được của chúng ta không còn giống như 
 
 <div class="reset-prose">> `undefined`</div>
 
-Tại sao lại có sự khác biệt như thế. Tất cả phải chăng là magic. Ở đây Javascript có 1 khái niệm là variable hoisting. Các biến dù được khai báo ở bất kỳ đâu trong hàm, đều được di chuyển lên đầu tiên. Chúng ta có thể viết lại đoạn code trên như sau:
+Tại sao lại có sự khác biệt như thế. Tất cả phải chăng là magic. Ở đây JavaScript có 1 khái niệm là variable hoisting. Các biến dù được khai báo ở bất kỳ đâu trong hàm, đều được di chuyển lên đầu tiên. Chúng ta có thể viết lại đoạn code trên như sau:
 
 ```js
 'use strict';
@@ -72,7 +72,7 @@ doubleA = 5;
 
 Điều này giải thích nguyên nhân vì sao chúng ta nhận được kết quả là `undefined` mà không phải là lỗi.
 
-Hay trong 1 ví dụ khác, trong ví dụ dưới đây, tôi sẽ minh họa cả vấn đề biến cục bộ trong Javascript.
+Hay trong 1 ví dụ khác, trong ví dụ dưới đây, tôi sẽ minh họa cả vấn đề biến cục bộ trong JavaScript.
 
 ```js
 'use strict';
@@ -91,7 +91,7 @@ Nhưng kết quả nhận được của chúng ta lúc này vẫn là:
 
 <div class="reset-prose">> `undefined`</div>
 
-Nguyên nhân là trong Javascript không có biến cục bộ theo khối lệnh, biến `message` được khai báo trong block `if` nhưng nó bị `hoisting` lên trên bắt đầu hàm, lúc này kết quả nhận được sẽ là `undefined`.
+Nguyên nhân là trong JavaScript không có biến cục bộ theo khối lệnh, biến `message` được khai báo trong block `if` nhưng nó bị `hoisting` lên trên bắt đầu hàm, lúc này kết quả nhận được sẽ là `undefined`.
 
 Hẳn là trong 1 số ứng dụng, có thể chúng ta gặp tình trạng như sau:
 

@@ -8,7 +8,7 @@ permalink: /thu-nghiem-voi-angular-querylist-changes-event-trong-angular/
 description: 'Bài học này sẽ giải quyết vấn đề chúng ta gặp phải khi cần phải hook vào QueryList Changes Event Trong Angular nhằm theo dõi khi nào đối tượng này thay đổi để áp dụng các logic liên quan.'
 image: '@public/assets/uploads/2017/03/angular2-14.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -18,7 +18,7 @@ tags:
   - Angular 2
   - Angular 2 Event
   - Angular Component
-  - Javascript
+  - JavaScript
   - Lập Trình Angular 2
   - QueryList Changes Event
   - Web Dev

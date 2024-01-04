@@ -8,7 +8,7 @@ permalink: /angular-workshop-introduction-to-angular/
 description: 'Workshop giới thiệu về các thành phần cơ bản của Angular, được mang đến bởi Tiep Phan'
 image: '@public/assets/uploads/2017/11/angular-workshop-introduction-to-angular.png'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

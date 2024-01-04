@@ -8,7 +8,7 @@ permalink: /thu-nghiem-voi-angular-custom-forms-validation-trong-angular/
 description: 'Hướng dẫn tạo Custom Forms Validation trong Angular'
 image: '@public/assets/uploads/2017/07/custom-forms-validation.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

@@ -8,7 +8,7 @@ permalink: /angular-trong-5-phut-dynamic-component-rendering/
 description: 'Hướng Dẫn Dynamic Component Rendering Trong Angular'
 image: '@public/assets/uploads/2019/09/angular-5-mins-dynamic-component-rendering.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

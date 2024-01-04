@@ -8,7 +8,7 @@ permalink: /thu-nghiem-voi-angular-template-driven-forms-trong-angular/
 description: 'Template-driven forms là phương pháp mà chúng ta sẽ tạo forms dựa vào template. Chúng ta thực hiện việc thêm các directives và hành vi vào template.'
 image: '@public/assets/uploads/2017/05/angular-p17.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

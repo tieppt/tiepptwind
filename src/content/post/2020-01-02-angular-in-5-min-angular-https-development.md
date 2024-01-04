@@ -8,7 +8,7 @@ permalink: /angular-trong-5-phut-angular-https-development/
 description: 'Hướng dẫn sử dụng Angular CLI và config HTTPS thông qua thư viện mkcert để cài đặt HTTPS khi lập trình ứng dụng Angular'
 image: '@public/assets/uploads/2020/01/angular-5-mins-angular-https-development.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development

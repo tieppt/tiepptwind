@@ -8,7 +8,7 @@ permalink: /thu-nghiem-voi-angular-dependency-injection-trong-angular/
 description: 'Bài viết này sẽ giới thiệu về Dependency Injection trong Angular – một trong những tính năng quan trọng của Angular – cho đến thời điểm hiện tại chỉ có Angular là framework duy nhất phía client cung cấp DI.'
 image: '@public/assets/uploads/2017/04/angular-16-Dependency-Injection.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình
   - Lập Trình Angular
   - Programming
@@ -19,7 +19,7 @@ tags:
   - Angular 2 Directives
   - Angular Component
   - Dependency Injection Trong Angular
-  - Javascript
+  - JavaScript
   - Lập Trình Angular 2
 ---
 #  Dependency Injection Trong Angular

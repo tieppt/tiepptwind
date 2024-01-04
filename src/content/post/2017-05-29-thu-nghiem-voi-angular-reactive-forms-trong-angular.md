@@ -8,7 +8,7 @@ permalink: /thu-nghiem-voi-angular-reactive-forms-trong-angular/
 description: 'Reactive Forms hay Model-Driven Forms, là một phương pháp để tạo form trong Angular, phương pháp này tránh việc sử dụng các directive ví dụ như ngModel, required, etc, thay vào đó tạo các Object Model ở trong các Component.'
 image: '@public/assets/uploads/2017/05/angular-p18.jpg'
 categories:
-  - Javascript
+  - JavaScript
   - Lập Trình Angular
   - Programming
   - Web Development
