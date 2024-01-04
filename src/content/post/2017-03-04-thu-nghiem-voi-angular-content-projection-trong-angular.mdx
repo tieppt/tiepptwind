@@ -1,9 +1,7 @@
 ---
-id: 323
 title: 'Thử Nghiệm Với Angular Phần 12: Content Projection Trong Angular'
 publishDate: 2017-03-04T13:50:01+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=323
 permalink: /thu-nghiem-voi-angular-content-projection-trong-angular/
 description: 'Làm thế nào để sử dụng lại các component trong Angular 2+, hay làm sao để có thể nhúng content của một component cho một component khác. Content Projection trong Angular sẽ giải quyết bài toán này.'
 image: '@public/assets/uploads/2017/03/angular2-12.jpg'
@@ -20,19 +18,16 @@ tags:
   - Lập Trình Angular 2
   - Web Dev
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Content Projection Trong Angular
-{:.no_toc}
+## Content Projection Trong Angular
 
 Làm thế nào để sử dụng lại các component trong Angular 2+, hay làm sao để có thể nhúng content của một component cho một component khác. Bài học này sẽ giới thiệu cho các bạn về Content Projection trong Angular sử dụng `ng-content` directive.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## 1. Nhúng một phần content vào một component
 
-### 1.1 `ng-content` directive:
+### 1.1 `ng-content` directive:
 
 Chúng ta sẽ nhúng ng-content directive vào phần component template mà chúng ta mong muốn content sẽ được nhúng vào.
 
@@ -166,11 +161,8 @@ Ví dụ như bạn nhúng content như sau:
 
 ## 3. Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/AeniQWsk85k" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-
+<Youtube id="AeniQWsk85k" />
 
 ## 4. Tham khảo
 
-Code repo: <a href="https://github.com/tieppt/try-angular/tree/lesson-12" target="_blank" rel="noopener noreferrer">https://github.com/tieppt/try-angular/tree/lesson-12</a>
+Code repo: <a href="https://github.com/tieppt/try-angular/tree/lesson-12" target="_blank" rel="noopener noreferrer">{'https://github.com/tieppt/try-angular/tree/lesson-12'}</a>
