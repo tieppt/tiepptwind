@@ -44,8 +44,8 @@ Ví dụ: định dạng ngày tháng cho kiểu Date, viết hoa các chữ cá
 
 Pipe nhận một đầu vào và cho kết quả ở đầu ra, giống hình minh họa sau:
 
-![Pipe - what is it?](/assets/uploads/2017/04/pipe-what-is-it.png){:class="img-responsive"}
-{:class="text-center"}
+![Pipe - what is it?](/assets/uploads/2017/04/pipe-what-is-it.png)
+
 
 Angular cung cấp cho chúng ta các Pipes sau đây (những Pipes là Stable):
 
@@ -82,8 +82,8 @@ Angular cung cấp cho chúng ta các Pipes sau đây (những Pipes là Stable)
   </li>
 </ul>
 
-![List Pipes trong Angular](/assets/uploads/2017/04/pipe-list-item.png){:class="img-responsive"}
-{:class="text-center"}
+![List Pipes trong Angular](/assets/uploads/2017/04/pipe-list-item.png)
+
 
 Trong đó có TitleCasePipe là pipe có từ phiên bản Angular 4.
 
@@ -166,8 +166,8 @@ Sử dụng nhiều Pipe tuần tự – Chaining Pipe:
 
 Chúng ta có thể sử dụng nhiều Pipes để có được kết quả mong muốn.
 
-![Chain Pipe](/assets/uploads/2017/04/pipe-chain-pipe.png){:class="img-responsive"}
-{:class="text-center"}
+![Chain Pipe](/assets/uploads/2017/04/pipe-chain-pipe.png)
+
 
 {% raw %}
 ```ts

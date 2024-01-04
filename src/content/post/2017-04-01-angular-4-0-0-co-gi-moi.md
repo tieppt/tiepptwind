@@ -43,58 +43,58 @@ Tháng 3-2017, Angular team đã phát hành Angular 4, vậy Angular 4 có gì 
   * Smaller & Faster: new View Engine giúp giảm kích thước code gen ra khoảng 60% so với trước đây.
   * Tương thích với TypeScript 2.1, 2.2, Angular Universal, Source Maps for Templates.
 
-![Angular 4](/assets/uploads/2017/04/angular-4-1.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-1.png)
+
 
   * Cải tiến ngIf, ngFor: tạo ra các local variable, if/else:
-![Angular 4 cải tiến ngIf, ngFor](/assets/uploads/2017/04/angular-4-2.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4 cải tiến ngIf, ngFor](/assets/uploads/2017/04/angular-4-2.png)
+
 
   * Giới thiệu NgComponentOutlet và NgTemplateOutlet tương thích với * syntax.
 
 Cú pháp của NgComponentOutlet và NgTemplateOutlet:
 
-![Angular 4 NgComponentOutlet và NgTemplateOutlet](/assets/uploads/2017/04/angular-4-3.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4 NgComponentOutlet và NgTemplateOutlet](/assets/uploads/2017/04/angular-4-3.png)
+
 
 Tạo dynamic component trong Angular:
 
-![Angular 4 Tạo dynamic component](/assets/uploads/2017/04/angular-4-4.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4 Tạo dynamic component](/assets/uploads/2017/04/angular-4-4.png)
 
-![Angular 4 Tạo dynamic component](/assets/uploads/2017/04/angular-4-5.png){:class="img-responsive"}
-{:class="text-center"}
+
+![Angular 4 Tạo dynamic component](/assets/uploads/2017/04/angular-4-5.png)
+
 
 ## 3. Breaking changes
 
   * Lifecyle events: thay thế toàn bộ là interface nên phải thay thế hết kế thừa các event này thành “implements”, không được sử dụng &#8220;extends&#8221; như ở phiên bản 2.
   * Không cho phép deep imports và tất cả các export được đặt ký tự ɵ ở đầu thì không được phép sử dụng trong ứng dụng của bạn.
 
-![Angular 4](/assets/uploads/2017/04/angular-4-6.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-6.png)
+
 
 Các imports không hợp lệ trong Angular 4:
 
-![Angular 4](/assets/uploads/2017/04/angular-4-7.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-7.png)
+
 
   * Animation đã tách riêng khỏi @angular/core, thay vào đó là import BrowserAnimationsModule từ @angular/platform-browser/animations và các thành phần như trigger từ @angular/animations.
 
-![Angular 4](/assets/uploads/2017/04/angular-4-8.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-8.png)
+
 
 ## 4. Deprecated
 
   * OpaqueToken thay thế bằng InjectionToken<?>
 
-![Angular 4](/assets/uploads/2017/04/angular-4-9.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-9.png)
+
 
   * Renderer thay thế bằng Renderer2
   * `<template>` thay thế bằng `<ng-template>`
 
-![Angular 4](/assets/uploads/2017/04/angular-4-10.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular 4](/assets/uploads/2017/04/angular-4-10.png)
+
 
 ## 5. Video bài học
 

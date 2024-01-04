@@ -85,7 +85,7 @@ Giả sử chúng ta có template form như sau:
 
 Trên đây chỉ là một form HTML thông thường, khi browser render chúng ta sẽ có form trông giống như sau:
 
-![Contact App Form](/assets/uploads/2017/05/ContactAppForm.png){:class="img-responsive"}
+![Contact App Form](/assets/uploads/2017/05/ContactAppForm.png)
 
 ## 2. Import APIs cho Template-driven forms
 

@@ -118,8 +118,8 @@ export class SignupRformComponent implements OnInit {
   }
 }
 ```
-![Register Form](/assets/uploads/2017/07/register-form.png){:class="img-responsive"}
-{:class="text-center"}
+![Register Form](/assets/uploads/2017/07/register-form.png)
+
 
 ## 3. Tạo Custom Validator Function
 
@@ -194,8 +194,8 @@ Cuối cùng, chúng ta thêm vào phần khai báo danh sách validators cho co
 }
 ```
 
-![Validator Forbidden Username](/assets/uploads/2017/07/register-forbidden.png){:class="img-responsive"}
-{:class="text-center"}
+![Validator Forbidden Username](/assets/uploads/2017/07/register-forbidden.png)
+
 
 ### 3.2 Generic Format
 
@@ -264,8 +264,8 @@ Và template sẽ giống như sau:
 </div>
 ```
 
-![Validator Compare Password](/assets/uploads/2017/07/register-compare-password.png){:class="img-responsive"}
-{:class="text-center"}
+![Validator Compare Password](/assets/uploads/2017/07/register-compare-password.png)
+
 
 ## 4. Validation Cho Template-driven Forms
 Việc validation cho Reactive Form trong Angular rất dễ dàng, bạn chỉ cần tạo một VF là có thể sử dụng được. Vậy còn với Template-driven Forms thì sao.

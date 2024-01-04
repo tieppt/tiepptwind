@@ -72,18 +72,18 @@ Các bạn chạy lệnh sau và chọn `Hosting` khi được hỏi như hình.
 $ firebase init
 ```
 
-![Firebase CLI](/assets/uploads/2019/08/firebase-cli-1.png){:class="img-responsive"}
-{:class="text-center"}
+![Firebase CLI](/assets/uploads/2019/08/firebase-cli-1.png)
+
 
 Lựa chọn tạo mới hoặc sử dụng project có sẵn:
 
-![Firebase CLI](/assets/uploads/2019/08/firebase-cli-2.png){:class="img-responsive"}
-{:class="text-center"}
+![Firebase CLI](/assets/uploads/2019/08/firebase-cli-2.png)
+
 
 Chọn project để deploy:
 
-![Firebase CLI](/assets/uploads/2019/08/firebase-cli-3.png){:class="img-responsive"}
-{:class="text-center"}
+![Firebase CLI](/assets/uploads/2019/08/firebase-cli-3.png)
+
 
 Trả lời lần lượt 3 câu hỏi:
 
@@ -93,8 +93,8 @@ Câu 2: bạn có sử dụng rewrite khi dùng Single Page App hay ko (thườn
 
 Câu 3: bạn có muốn override file index.html không (thường là không).
 
-![Firebase CLI](/assets/uploads/2019/08/firebase-cli-4.png){:class="img-responsive"}
-{:class="text-center"}
+![Firebase CLI](/assets/uploads/2019/08/firebase-cli-4.png)
+
 
 
 ## 5. Deploy Angular Application

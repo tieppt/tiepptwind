@@ -116,8 +116,8 @@ Cũng giống như trong <a href="/thu-nghiem-voi-angular-template-driven-forms-
 
 Trên đây chỉ là một form HTML thông thường, khi browser render chúng ta sẽ có form trông giống như sau:
 
-![Contact App Form](/assets/uploads/2017/05/ContactAppForm.png){:class="img-responsive"}
-{:class="text-center"}
+![Contact App Form](/assets/uploads/2017/05/ContactAppForm.png)
+
 
 Nhưng trong template trên chúng ta mặc định sử dụng `ngSubmit`, các bạn có thể trở lại bài trước để hiểu về `ngSubmit` vs `submit` event.
 
@@ -389,8 +389,8 @@ Và template của chúng ta sẽ có:
 
 Khi render chúng ta sẽ có form có dạng:
 
-![Contact App Form](/assets/uploads/2017/05/ContactAppTels.png){:class="img-responsive"}
-{:class="text-center"}
+![Contact App Form](/assets/uploads/2017/05/ContactAppTels.png)
+
 
 Ở đoạn code trên chúng ta đã tạo ra một FormArray instance và khi binding vào template chúng ta thông báo nó với directive `formArrayName`.
 Khi thực hiện việc lặp, chúng ta tạo ra biến index có tên là `"i"`, với mỗi biến index như thế, Angular sẽ lưu trữ tương ứng với một phần tử trong FormArray là một AbstractControl instance, trong trường hợp này của chúng ta là một FormControl instance, vậy nên chúng ta có đoạn binding property như sau: `[formControlName]="i"`. 

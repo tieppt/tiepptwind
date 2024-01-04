@@ -47,18 +47,18 @@ Vâng đúng vậy, đây là phương pháp lập trình xoay quanh **data stre
 
 Bạn có thể tưởng tượng data streams như hình sau, với `data` được gửi đến trong suốt dòng thời gian của một stream (over time), giống như một array có các phần tử được gửi đến lần lượt theo thời gian.
 
-![data streams](/assets/uploads/2017/09/packages.gif){:class="img-responsive"}
-{:class="text-center"}
+![data streams](/assets/uploads/2017/09/packages.gif)
+
 
 Và chúng ta có thể coi mọi thứ là stream: single value, array, event, etc.
 
-![everything-is-a-stream](/assets/uploads/2017/09/everything-is-a-stream.jpg){:class="img-responsive"}
-{:class="text-center"}
+![everything-is-a-stream](/assets/uploads/2017/09/everything-is-a-stream.jpg)
+
 
 Không những thế, khi thao tác với stream, chúng ta có thể có `value`, `error`, hay `complete` signals. Đây là điều mà các API trước đây của các hệ thống event trong JavaScript còn thiếu, chúng có qua nhiều interface khác nhau cho các loại event khác nhau, Observable sinh ra để tổng quát hóa các interface đó lại. 
 
-![figure-stream](/assets/uploads/2017/09/figure-stream.png){:class="img-responsive"}
-{:class="text-center"}
+![figure-stream](/assets/uploads/2017/09/figure-stream.png)
+
 
 Và Rxjs giúp chúng ta có được **reactive** trong lập trình ứng dụng JavaScript:
 
@@ -1835,8 +1835,8 @@ Combination Operators: sử dụng để kết hợp các Observables lại vớ
 
 `concurrent`: số lượng stream được phép chạy đồng thời.
 
-![rxjs merge](/assets/uploads/2017/09/rxjs-merge.png){:class="img-responsive"}
-{:class="text-center"}
+![rxjs merge](/assets/uploads/2017/09/rxjs-merge.png)
+
 
 ```ts
 const s1 = Rx.Observable.interval(300).take(5)
@@ -2026,8 +2026,8 @@ const sub = source
 
 ```
 
-![rxjs combineLatest](/assets/uploads/2017/09/rxjs-combineLatest.png){:class="img-responsive"}
-{:class="text-center"}
+![rxjs combineLatest](/assets/uploads/2017/09/rxjs-combineLatest.png)
+
 
 **withLatestFrom**: `withLatestFrom(other: Observable, project: Function): Observable`
 
@@ -2035,8 +2035,8 @@ Lưu ý: chỉ có thể sử dụng instance operator với **withLatestFrom**.
 
 Sử dụng để emit value của Observable này `this` kết hợp với latest value của `other` Observable, nếu `other` chưa emit gì thì `this` có emit value cũng không emit gì cả.
 
-![rxjs withLatestFrom](/assets/uploads/2017/09/rxjs-withLatestFrom.png){:class="img-responsive"}
-{:class="text-center"}
+![rxjs withLatestFrom](/assets/uploads/2017/09/rxjs-withLatestFrom.png)
+
 
 ```ts
 
@@ -2138,8 +2138,8 @@ Sau khi tất cả Observables emit value, thì emit 1 mảng các giá trị t�
 
 > The zip operator will subscribe to all inner observables, waiting for each to emit a value. Once this occurs, all values with the corresponding index will be emitted. This will continue until at least one inner observable completes.
 
-![rxjs zip](/assets/uploads/2017/09/rxjs-zip.png){:class="img-responsive"}
-{:class="text-center"}
+![rxjs zip](/assets/uploads/2017/09/rxjs-zip.png)
+
 
 ```ts
 const s1 = Rx.Observable.interval(200).take(10)

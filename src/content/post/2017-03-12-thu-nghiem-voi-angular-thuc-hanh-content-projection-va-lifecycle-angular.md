@@ -26,8 +26,8 @@ tags:
 # Thực Hành Content Projection Và Lifecycle Liên Quan Trong Angular
 {:.no_toc}
 
-![Angular content projection collapse](/assets/uploads/2017/03/angular-content-projection-collapse.png){:class="img-responsive"}
-{:class="text-center"}
+![Angular content projection collapse](/assets/uploads/2017/03/angular-content-projection-collapse.png)
+
 
 Content Projection là một concept khá hay trong Angular, giúp chúng ta có thể dễ dàng tạo các component có khả năng tái sử dụng cao. Bài học này chúng ta sẽ tạo các Component để tìm hiểu chi tiết hơn về Content Projection và các Lifecycle liên quan khi sử dụng.
 
