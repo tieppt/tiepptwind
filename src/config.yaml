@@ -4,7 +4,7 @@ site:
   site: 'https://next.tiepphan.com'
   logo: '@public/assets/images/logo.svg'
   base: '/'
-  trailingSlash: false
+  trailingSlash: true
 
   googleSiteVerificationId: google-site-verification-id
 
