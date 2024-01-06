@@ -6,19 +6,20 @@ site:
   base: '/'
   trailingSlash: true
 
-  googleSiteVerificationId: google-site-verification-id
+  googleSiteVerificationId: Gcn3Y0oBud7gufI1PtszF7DFNgFOifgLRIaZAoLZWWU
+  bingVerificationId: F160AE523B1846CBDC431CB91CB6613A
 
 # Default SEO metadata
 metadata:
   title:
-    default: Tiep Phan
-    template: '%s — Blog'
-  description: "Tiep Phan Blogs."
+    default: Tiep Phan | Lập Trình Thật Kỳ Diệu
+    template: '%s — Lập Trình Thật Kỳ Diệu'
+  description: "Tiep Phan's Blog"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: TiepPhan
+    site_name: Tiep Phan — Lập Trình Thật Kỳ Diệu
     images:
       - url: '~/assets/images/hero-laptop.jpg'
         width: 1200
