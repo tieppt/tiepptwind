@@ -1,11 +1,9 @@
 ---
-id: 401
-title: 'Thử Nghiệm Với Angular Phần 16 – Dependency Injection Trong Angular'
+title: 'Thử Nghiệm Với Angular Phần 16 - Dependency Injection Trong Angular'
 publishDate: 2017-04-23T09:59:27+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=401
 permalink: /thu-nghiem-voi-angular-dependency-injection-trong-angular/
-description: 'Bài viết này sẽ giới thiệu về Dependency Injection trong Angular – một trong những tính năng quan trọng của Angular – cho đến thời điểm hiện tại chỉ có Angular là framework duy nhất phía client cung cấp DI.'
+description: 'Bài viết này sẽ giới thiệu về Dependency Injection trong Angular - một trong những tính năng quan trọng của Angular - cho đến thời điểm hiện tại chỉ có Angular là framework duy nhất phía client cung cấp DI.'
 image: '@public/assets/uploads/2017/04/angular-16-Dependency-Injection.jpg'
 categories:
   - JavaScript
@@ -22,18 +20,16 @@ tags:
   - JavaScript
   - Lập Trình Angular 2
 ---
-#  Dependency Injection Trong Angular
-{:.no_toc}
+import Youtube from '~/components/ui/Youtube.astro';
 
-Bài viết này sẽ giới thiệu về Dependency Injection trong Angular – một trong những tính năng quan trọng của Angular – cho đến thời điểm hiện tại chỉ có Angular là framework duy nhất phía client cung cấp DI.
+## Giới thiệu
+
+Bài viết này sẽ giới thiệu về Dependency Injection trong Angular - một trong những tính năng quan trọng của Angular - cho đến thời điểm hiện tại chỉ có Angular là framework duy nhất phía client cung cấp DI.
 
 Bài viết bao gồm các nội dung sau:
 
-* ToC
-{:toc}
-{:.tp__toc}
-
-## 1. Dependency là gì? {#tp-di-di-la-gi}
+<div id="tp-di-di-la-gi"></div>
+## 1. Dependency là gì?
 
 Khi trong class A có sự tồn tại của class B, dùng class B để làm một công việc nào đó, ta nói rằng class A đang phụ thuộc vào class B.
 
@@ -85,7 +81,8 @@ Giả sử lúc này chúng ta chạy chương trình với đoạn code như sa
 
 Đoạn code trên không có gì đặc biệt, chúng ta đã khởi tạo instance của class CPU bên trong contructor của class Computer. Vấn đề phát sinh bây giờ, nếu chúng ta muốn thay instance đó bằng một instance của một class CPU khác, lúc này chúng ta bắt buộc phải viết lại class Computer, ngay kể cả việc test chương trình cũng khó khăn vì chúng ta khó để thay đổi instance đó cho việc mock dữ liệu test.
 
-## 2. Injection {#tp-di-injection}
+<div id="tp-di-injection"></div>
+## 2. Injection
 
 Chúng ta có thể cải thiện code trên bằng cách sử dụng cách 2, với việc inject các phụ thuộc. Kết quả là chúng ta có thể dễ dàng test, thay đổi linh động các phụ thuộc. Chúng ta thay đổi code như sau:
 
@@ -120,7 +117,8 @@ Khi áp dụng Abstration, chúng ta hoàn toàn có thể sử dụng tính đa
 
 Các bạn có thể đoán được mẫu thiết kế trên chính là **Dependency Injection (DI)**, chi tiết hơn đó là **constructor injection**.
 
-## 3. DI system trong Angular như thế nào? {#tp-di-di-trong-angular-ntn}
+<div id="tp-di-di-trong-angular-ntn"></div>
+## 3. DI system trong Angular như thế nào?
 
 Angular giúp chúng ta dễ dàng sử dụng DI trong ứng dụng, giả sử với đoạn code phía trên, chúng ta có thể biến đổi để sử dụng Angular DI như sau:
 
@@ -160,7 +158,7 @@ class Computer {
 }
 ```
 
-> Lưu ý rằng, trong Angular 4, tất cả các class có phụ thuộc đến các thành phần khác – như class Computer ở trên – sẽ phải decorate bằng **@Injectable()** decorator.
+> Lưu ý rằng, trong Angular 4, tất cả các class có phụ thuộc đến các thành phần khác - như class Computer ở trên - sẽ phải decorate bằng **@Injectable()** decorator.
 
 ### 3.1 Các thành phần chính
 
@@ -175,9 +173,9 @@ DI trong Angular bao gồm 3 thành phần sau đây:
 ![Dependency Injection Trong Angular](/assets/uploads/2017/04/DI-angular.png)
 
 
-Chúng ta đã sử dụng **ReflectiveInjector** để lấy được object của class Computer – đó  chính là **Injector** – thông qua method **resolveAndCreate**.
+Chúng ta đã sử dụng **ReflectiveInjector** để lấy được object của class Computer - đó  chính là **Injector** - thông qua method **resolveAndCreate**.
 
-**@Inject/@Injectable** sẽ thêm các metadata vào class Computer, mà sau này sẽ được sử dụng bởi DI system. Trong trường hợp ở trên, **@Inject/@Injectable** sẽ đánh dấu cho DI biết tham số đầu tiên của hàm tạo của class Computer cần một instance của class CPU – nếu có nhiều tham số hơn, nó sẽ cho đúng thứ tự các tham số của hàm tạo để DI biết cách inject instances vào.
+**@Inject/@Injectable** sẽ thêm các metadata vào class Computer, mà sau này sẽ được sử dụng bởi DI system. Trong trường hợp ở trên, **@Inject/@Injectable** sẽ đánh dấu cho DI biết tham số đầu tiên của hàm tạo của class Computer cần một instance của class CPU - nếu có nhiều tham số hơn, nó sẽ cho đúng thứ tự các tham số của hàm tạo để DI biết cách inject instances vào.
 
 Để Injector có thể biết được cách để tạo một object, chúng ta cần cung cấp các providers, đó chính là đầu vào của method **resolveAndCreate**. Ở ví dụ trên, chúng ta đã truyền vào một mảng các class.
 
@@ -190,7 +188,7 @@ const injector = ReflectiveInjector.resolveAndCreate([
 ]);
 ```
 
-Chúng ta có object với key **provide**, đây là **token** để DI system map với token mà **@Inject/@Injectable** đã mô tả. Khi có token, DI system sẽ đọc key tiếp theo, trong trường hợp trên là **useClass**, với key trên nó sẽ tạo instance của class tương ứng.
+Chúng ta có object với key **provide**, đây là **token** để DI system map với token mà **@Inject/@Injectable** đã mô tả. Khi có token, DI system sẽ đọc key tiếp theo, trong trường hợp trên là **useClass**, với key trên nó sẽ tạo instance của class tương ứng.
 
 Token có thể là string hoặc một kiểu dữ liệu.
 
@@ -217,7 +215,7 @@ Sau khi Injector khởi tạo các objects và inject các dependencies cần th
 const computer = injector.get(Computer);
 ```
 
-Đến thời điểm này, mỗi khi bạn gọi injector.get cho provider dạng useClass sẽ luôn nhận được cùng một object – singleton.
+Đến thời điểm này, mỗi khi bạn gọi injector.get cho provider dạng useClass sẽ luôn nhận được cùng một object - singleton.
 
 ### 3.2 @Injectable() và @Inject()
 
@@ -271,9 +269,10 @@ class Computer {
 
 Bây giờ mọi thứ lại hoạt động thật hoàn hảo như chúng ta mong đợi.
 
-Tóm lại, chúng ta sử dụng **@Injectable** với các kiểu dữ liệu tự định nghĩa – class mà chúng ta tạo ra. Còn đối với các kiểu dữ liệu primitive như boolean, string, number, etc; chúng ta cần **@Inject** để báo cho Angular biết, và chúng ta sẽ config các provider tương ứng cho chúng. Chúng ta có thể sử dụng kết hợp cả hai khi một class phụ thuộc vào cả kiểu dữ liệu primitive và kiểu tự định nghĩa.
+Tóm lại, chúng ta sử dụng **@Injectable** với các kiểu dữ liệu tự định nghĩa - class mà chúng ta tạo ra. Còn đối với các kiểu dữ liệu primitive như boolean, string, number, etc; chúng ta cần **@Inject** để báo cho Angular biết, và chúng ta sẽ config các provider tương ứng cho chúng. Chúng ta có thể sử dụng kết hợp cả hai khi một class phụ thuộc vào cả kiểu dữ liệu primitive và kiểu tự định nghĩa.
 
-## 4. Provider in-depth {#tp-di-di-in-depth}
+<div id="tp-di-di-in-depth"></div>
+## 4. Provider in-depth
 
 Trong các ví dụ trước, chúng ta đã sử dụng provider với cấu trúc của một object với các key **provide** và **useClass** như sau.
 
@@ -342,7 +341,7 @@ Factory có thể có dependencies, lúc đó chúng ta sử dụng key **deps**
   useFactory: (cpu) => {
     return new Computer(cpu);
   },
-  deps: [CPU]
+  deps: [CPU]
 }
 ```
 
@@ -351,8 +350,8 @@ Factory có thể có dependencies, lúc đó chúng ta sử dụng key **deps**
 Khi có nhiều providers có cùng giá trị của key **provide** và không sử dụng config multi: true thì provider nào thêm vào sau cùng sẽ win.
 
 ```ts
-{ provide: 'API_ENDPOINT',  useValue: 'http://tiepphan.com/blog/' },
-{ provide: 'API_ENDPOINT',  useValue: 'http://tiepphan.com/thu-nghiem-voi-angular-dependency-injection-trong-angular/' }
+{ provide: 'API_ENDPOINT',  useValue: 'http://tiepphan.com/blog/' },
+{ provide: 'API_ENDPOINT',  useValue: 'http://tiepphan.com/thu-nghiem-voi-angular-dependency-injection-trong-angular/' }
 ```
 
 Kết quả cuối cùng của API_ENDPOINT sẽ là `http://tiepphan.com/thu-nghiem-voi-angular-dependency-injection-trong-angular/`.
@@ -397,7 +396,7 @@ Khi đó kết quả nhận được là một mảng các giá trị.
 
 ### 4.6 Forward References
 
-Bây giờ đặt ra tình huống, bạn muốn tạo một provider mà class bạn định nghĩa sau khi tạo provider thì sẽ thế nào.  Hãy quan sát ví dụ sau:
+Bây giờ đặt ra tình huống, bạn muốn tạo một provider mà class bạn định nghĩa sau khi tạo provider thì sẽ thế nào.  Hãy quan sát ví dụ sau:
 
 ```ts
 export class Computer {
@@ -460,7 +459,8 @@ export class RequiredValidator implements Validator {
 
 Như bạn có thể thấy, Angular khai báo provider cần sử dụng đến class khai báo ngay sau nó. Đây chính là lúc chúng ta cần đến **Forward References**.
 
-## 5. DI sử dụng trong thực tế {#tp-di-di-su-dung-trong-angular}
+<div id="tp-di-di-su-dung-trong-angular"></div>
+## 5. DI sử dụng trong thực tế
 
 Trong ứng dụng Angular, bạn có thể cung cấp provider ở 2 cấp độ: Module và Component/Directive.
 
@@ -530,13 +530,15 @@ export class CollapseComponent implements OnInit {
 ![Component Dependency Injection](/assets/uploads/2017/04/component-di.png)
 
 
-## 6. Services {#tp-di-services-la-gi}
+<div id="tp-di-services-la-gi"></div>
+## 6. Services
 
-Đến đây các bạn đã thấy việc sử dụng service là PostService. Ý tưởng về việc dùng service rất đơn giản.Nếu bạn có các phần code xử lý business logic – ví dụ gọi API để nhận gửi dữ liệu – hoặc có các phần code cần để sử dụng lại, chúng ta sẽ tách các phần đó ra khỏi Component và gọi chúng là services. Chúng ta không để các Component phụ thuộc chặt chẽ vào các services, mà thay vào đó sẽ inject thông qua DI system. Bằng cách đó, các Component có thể phụ thuộc vào Interface – Abstraction – thay vì phụ thuộc vào class cụ thể, giúp dễ dàng kiểm thử, bảo trì, nâng cấp. Trong thực tế, chúng ta thường khai báo các services ở cấp độ Module để sử dụng xuyên suốt trong chương trình.
+Đến đây các bạn đã thấy việc sử dụng service là PostService. Ý tưởng về việc dùng service rất đơn giản.Nếu bạn có các phần code xử lý business logic - ví dụ gọi API để nhận gửi dữ liệu - hoặc có các phần code cần để sử dụng lại, chúng ta sẽ tách các phần đó ra khỏi Component và gọi chúng là services. Chúng ta không để các Component phụ thuộc chặt chẽ vào các services, mà thay vào đó sẽ inject thông qua DI system. Bằng cách đó, các Component có thể phụ thuộc vào Interface - Abstraction - thay vì phụ thuộc vào class cụ thể, giúp dễ dàng kiểm thử, bảo trì, nâng cấp. Trong thực tế, chúng ta thường khai báo các services ở cấp độ Module để sử dụng xuyên suốt trong chương trình.
 
-## 7. Optional Dependencies {#tp-di-optional-di-la-gi}
+<div id="tp-di-optional-di-la-gi"></div>
+## 7. Optional Dependencies
 
-Để đánh dấu một dependency là optional – có cũng được, không có cũng được – chúng ta sử dụng **@****Optional** decorator.
+Để đánh dấu một dependency là optional - có cũng được, không có cũng được - chúng ta sử dụng **@****Optional** decorator.
 
 ```ts
 export class OptionalClass {
@@ -552,18 +554,18 @@ export class OptionalClass {
 
 Ngoài ra, DI trong Angular còn một số kiến thức về Controlling Visibility với các decorator **@SkipSelf**, **@Host** hay **@Self** các bạn có thể vào trang document chính thức để tìm hiểu thêm.
 
-## 8. Video bài học {#tp-di-di-video}
+<div id="tp-di-di-video"></div>
+## 8. Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/bKadxkJJg4U" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="bKadxkJJg4U" />
 
-## 9. Tham khảo {#tp-di-di-references}
+<div id="tp-di-di-references"></div>
+## 9. Tham khảo
 
-<a href="https://angular.io/docs/ts/latest/cookbook/dependency-injection.html" target="_blank" rel="noopener noreferrer">https://angular.io/docs/ts/latest/cookbook/dependency-injection.html</a>
+- <a href="https://angular.io/docs/ts/latest/cookbook/dependency-injection.html" target="_blank" rel="noopener noreferrer">{'https://angular.io/docs/ts/latest/cookbook/dependency-injection.html'}</a>
 
-<a href="https://edwardthienhoang.wordpress.com/2015/03/30/tan-man-ve-dependency-injection/" target="_blank" rel="noopener noreferrer">https://edwardthienhoang.wordpress.com/2015/03/30/tan-man-ve-dependency-injection/</a>
+- <a href="https://edwardthienhoang.wordpress.com/2015/03/30/tan-man-ve-dependency-injection/" target="_blank" rel="noopener noreferrer">{'https://edwardthienhoang.wordpress.com/2015/03/30/tan-man-ve-dependency-injection/'}</a>
 
-<a href="https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html" target="_blank" rel="noopener noreferrer">https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html</a>
+- <a href="https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html" target="_blank" rel="noopener noreferrer">{'https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html'}</a>
 
-**Download PDF:** <a href="https://drive.google.com/file/d/0B-ux0B5az7XuNG9FaW5YVUJ6Nm8/view?usp=sharing" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/0B-ux0B5az7XuNG9FaW5YVUJ6Nm8/view?usp=sharing</a>
+- **Download PDF:** <a href="https://drive.google.com/file/d/0B-ux0B5az7XuNG9FaW5YVUJ6Nm8/view?usp=sharing" target="_blank" rel="noopener noreferrer">{'https://drive.google.com/file/d/0B-ux0B5az7XuNG9FaW5YVUJ6Nm8/view?usp=sharing'}</a>
