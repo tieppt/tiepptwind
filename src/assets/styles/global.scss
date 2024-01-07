@@ -85,6 +85,9 @@
 
 .single-post-container {
   @apply max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl;
+  a {
+    @apply break-words;
+  }
 }
 
 .youtube-embed-16-9 {
