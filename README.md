@@ -19,6 +19,7 @@
   - [Project structure](#project-structure)
   - [Commands](#commands)
   - [Configuration](#configuration)
+  - [Content Collections](#content-collections)
   - [Deploy](#deploy)
 
 </details>
@@ -178,6 +179,27 @@ ui:
 ```
 
 <br>
+
+### Content Collections
+
+To get the most out of your content collections, create a `src/content/config.ts` file in your project (`.js` and `.mjs` extensions are also supported.) This is a special file that Astro will automatically load and use to configure your content collections.
+
+For example, if you have a collection of blog posts, you can define the collection in `src/content/config.ts`:
+
+```ts
+// 1. Import utilities from `astro:content`
+import { defineCollection } from 'astro:content';
+// 2. Define your collection(s)
+const blogCollection = defineCollection({ /* ... */ });
+// 3. Export a single `collections` object to register your collection(s)
+//    This key should match your collection directory name in "src/content"
+export const collections = {
+  'blog': blogCollection,
+};
+```
+
+For more information, see the [Content Collections](https://docs.astro.build/en/guides/content-collections/#defining-collections) guide.
+
 
 ### Deploy
 
