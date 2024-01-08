@@ -1,9 +1,7 @@
 ---
-id: 1000
-title: 'Thử Nghiệm Với Angular Phần 18 – Reactive Forms Trong Angular'
+title: 'Thử Nghiệm Với Angular Phần 18 - Reactive Forms Trong Angular'
 publishDate: 2017-05-29T10:00:00+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=1000
 permalink: /thu-nghiem-voi-angular-reactive-forms-trong-angular/
 description: 'Reactive Forms hay Model-Driven Forms, là một phương pháp để tạo form trong Angular, phương pháp này tránh việc sử dụng các directive ví dụ như ngModel, required, etc, thay vào đó tạo các Object Model ở trong các Component.'
 image: '@public/assets/uploads/2017/05/angular-p18.jpg'
@@ -18,9 +16,9 @@ tags:
   - Angular Forms
   - Lập Trình Angular 2
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Reactive Forms Trong Angular
-{:.no_toc}
+## Reactive Forms Trong Angular
 
 Thuật ngữ **Reactive Forms** hay còn được gọi là **Model-Driven Forms**, là một phương pháp để tạo form trong Angular, phương pháp này tránh việc sử dụng các directive ví dụ như ngModel, required, etc, thay vào đó tạo các Object Model ở trong các Component, rồi tạo ra form từ chúng.
 Một điều lưu ý đó là Template-Driven là async còn Reactive là sync.
@@ -29,24 +27,21 @@ Trong Reactive forms, chúng ta tạo toàn bộ form control tree ở trong cod
 
 Trong Template-driven forms, chúng ta ủy thác việc tạo form control cho directives, để tránh bị lỗi `changed after checked`, directives cần một cycle nữa để build toàn bộ form control tree. Vậy nên bạn cần đợi một tick nữa để có thể truy cập vào các phẩn tử của form. Chính điều này khiến việc test template-driven form trở nên phức tạp hơn.
 
-Bạn có thể tham khảo thêm tại document sau: <a href="https://angular.io/docs/ts/latest/guide/reactive-forms.html#!#async-vs-sync" target="_blank" rel="noopener noreferrer">https://angular.io/docs/ts/latest/guide/reactive-forms.html#!#async-vs-sync</a>
+Bạn có thể tham khảo thêm tại document sau: <a href="https://angular.io/guide/reactive-forms#!#async-vs-sync" target="_blank" rel="noopener noreferrer">{'https://angular.io/guide/reactive-forms#!#async-vs-sync'}</a>
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## 1. Các thành phần cơ bản của form
 -	AbstractControl là một abstract class cho 3 lớp con form control: FormControl, FormGroup, và FormArray. Nó cung cấp các hành vi, thuộc tính chung cho các lớp con.
 
 -	FormControl là đơn vị nhỏ nhất, nó lưu giữ giá trị và trạng thái hợp lệ của một form control. Tương ứng với một HTML form control như input, select.
 
--	FormGroup nó lưu giữ giá trị và trạng thái hợp lệ của một nhóm các đối tượng thuộc AbstractControl – có thể là FormControl, FormGroup, hay FormArray – đây là một dạng composite. Ở level cao nhất của một form trong component của bạn là một FormGroup.
+-	FormGroup nó lưu giữ giá trị và trạng thái hợp lệ của một nhóm các đối tượng thuộc AbstractControl - có thể là FormControl, FormGroup, hay FormArray - đây là một dạng composite. Ở level cao nhất của một form trong component của bạn là một FormGroup.
 
 -	FormArray nó lưu giữ giá trị và trạng thái hợp lệ của một mảng các đối tượng thuộc AbstractControl giống như FormGroup. Nó cũng là một dạng composite. Nhưng nó không phải là thành phần ở level cao nhất.
 
 ## 2. Template
 
-Cũng giống như trong <a href="/thu-nghiem-voi-angular-template-driven-forms-trong-angular/" target="_blank" rel="noopener noreferrer">Template-driven forms</a>, chúng ta sẽ sử dụng một template giống thế.
+Cũng giống như trong <a href="/thu-nghiem-voi-angular-template-driven-forms-trong-angular/">Template-driven forms</a>, chúng ta sẽ sử dụng một template giống thế.
 
 ```html
 <form novalidate (ngSubmit)="onSubmit()"
@@ -230,7 +225,7 @@ Việc binding property vào template cần map cấu trúc cây DOM giống v�
 
 Việc thêm Validator vào cho một control rất đơn giản, việc của bạn là thêm giá trị tham số tiếp theo như sau:
 
-> Lưu ý: có 2 loại validators, một là validator validator đồng bộ (sync), ví dụ required, minlenghth, etc. Hai là async validator (validator bất đông bộ) chẳng hạn như validator để xem user tồn tại chưa, lúc này bạn gọi AJAX để thực hiện tìm kiếm và đó là một quá trình xử lý bất đồng bộ. Các class FormControl và FormGroup cho phép thêm validator theo thứ tự sync – async vào danh sách tham số của constructor.
+> Lưu ý: có 2 loại validators, một là validator validator đồng bộ (sync), ví dụ required, minlenghth, etc. Hai là async validator (validator bất đông bộ) chẳng hạn như validator để xem user tồn tại chưa, lúc này bạn gọi AJAX để thực hiện tìm kiếm và đó là một quá trình xử lý bất đồng bộ. Các class FormControl và FormGroup cho phép thêm validator theo thứ tự sync - async vào danh sách tham số của constructor.
 
 
 ```ts
@@ -264,8 +259,7 @@ Với Validators.required là một validator function.
 Hoặc có thể thêm nhiều validator với `Validators.compose`, hoặc truyền vào là một mảng các validator functions: 
 
 ```ts
-contactName: new FormControl('',
-                 [Validators.required, Validators.minLength(3)])
+contactName: new FormControl('', [Validators.required, Validators.minLength(3)])
 ```
 Ở đoạn code trên, chúng ta gộp `required` và `minLength(3)` cho control `contactName`, hoặc bạn có thể thêm nhiều các validator function nữa theo ý muốn.
 
@@ -279,7 +273,7 @@ contactName: new FormControl('',
 </div>
 ```
 
-Hoặc sử dụng <a href="https://github.com/angular/angular/blob/4.1.x/packages/forms/src/model.ts#L488" target="_blank">`hasError`</a>:
+Hoặc sử dụng <a href="https://github.com/angular/angular/blob/4.1.x/packages/forms/src/model.ts#L488" target="_blank" rel="noopener noreferrer">`hasError`</a>:
 
 ```html
 <div class="col alert alert-danger" role="alert"
@@ -380,7 +374,7 @@ Và template của chúng ta sẽ có:
       <input class="form-control" type="tel" id="example-tel-input" [formControlName]="i">
       <div class="text-right">
         <button class="btn btn-info" (click)="addTel()">+</button>
-        <button class="btn btn-danger" (click)="removeTel(i)" *ngIf="tels.controls.length > 1">-</button>
+        <button class="btn btn-danger" (click)="removeTel(i)" *ngIf="tels.controls.length > 1">-<button>
       </div>
     </div>
   </div>
@@ -395,7 +389,7 @@ Khi render chúng ta sẽ có form có dạng:
 Ở đoạn code trên chúng ta đã tạo ra một FormArray instance và khi binding vào template chúng ta thông báo nó với directive `formArrayName`.
 Khi thực hiện việc lặp, chúng ta tạo ra biến index có tên là `"i"`, với mỗi biến index như thế, Angular sẽ lưu trữ tương ứng với một phần tử trong FormArray là một AbstractControl instance, trong trường hợp này của chúng ta là một FormControl instance, vậy nên chúng ta có đoạn binding property như sau: `[formControlName]="i"`. 
 
-FormArray cung cấp một số phương thức cho phép chúng ta thêm, xóa phần tử trong array như `insert`, `push`, `removeAt`. Hay phương thức `at` để lấy ra phần tử ở vị trí cụ thể. Chúng sẽ có ích khi bạn sử dụng trong ứng dụng của mình – trong trường hợp ở trên chúng ta có dùng để thêm hoặc xóa.
+FormArray cung cấp một số phương thức cho phép chúng ta thêm, xóa phần tử trong array như `insert`, `push`, `removeAt`. Hay phương thức `at` để lấy ra phần tử ở vị trí cụ thể. Chúng sẽ có ích khi bạn sử dụng trong ứng dụng của mình - trong trường hợp ở trên chúng ta có dùng để thêm hoặc xóa.
 
 ## 9. Forms with a single control
 
@@ -427,7 +421,7 @@ Giờ đây, bạn có thể tạo ra một form seach cực kỳ nhanh và đơ
 
 Có 2 phương thức để cập nhật giá trị cho form control được mô tả bởi class `AbstractControl` là `setValue` và `patchValue`. Chúng là các abstract method, vậy nên các class dẫn xuất sẽ phải implement riêng cho chúng.
 
-Đối với class `FormControl`, không có gì khác biệt giữa 2 phương thức – thực chất `patchValue` gọi lại `setValue`.
+Đối với class `FormControl`, không có gì khác biệt giữa 2 phương thức - thực chất `patchValue` gọi lại `setValue`.
 
 Đối với các class `FormGroup` và `FormArray`, patchValue sẽ cập nhật các giá trị được khai báo tương ứng trong object value truyền vào. Nhưng `setValue` sẽ báo lỗi nếu một control nào bị thiếu hoặc thừa, tức là bạn phải truyền chính xác object có cấu trúc giống như cấu trúc của form hay nói cách khác là không chấp nhận subset hoặc superset của cấu trúc form hiện tại.
 
@@ -438,12 +432,10 @@ Ngoài ra, còn có phương thức `reset` để bạn có thể reset lại tr
 
 ## 11. Video bài học
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/SKwXZ_0Yk9I" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<Youtube id="SKwXZ_0Yk9I" />
 
 ## 12. Tham khảo
 
-Reactive Forms documentation: <a href="https://angular.io/guide/reactive-forms" target="_blank">https://angular.io/guide/reactive-forms</a>
+Reactive Forms documentation: <a href="https://angular.io/guide/reactive-forms" target="_blank" rel="noopener noreferrer">https://angular.io/guide/reactive-forms</a>
 
-Git repo: <a href="https://github.com/tieppt/try-angular/tree/lesson-18" target="_blank">https://github.com/tieppt/try-angular/tree/lesson-18</a>
+Git repo: <a href="https://github.com/tieppt/try-angular/tree/lesson-18" target="_blank" rel="noopener noreferrer">https://github.com/tieppt/try-angular/tree/lesson-18</a>
