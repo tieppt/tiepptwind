@@ -1,9 +1,7 @@
 ---
-id: 1002
 title: 'Rxjs Và Reactive Programming'
 publishDate: 2017-09-16T10:00:00+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=1002
 permalink: /rxjs-reactive-programming/
 description: 'Giới thiệu Rxjs và Reactive Programming và ứng dụng trong Angular'
 image: '@public/assets/uploads/2017/09/rxjs-reactive-programming.jpg'
@@ -22,17 +20,11 @@ tags:
   - Reactive Programming
 ---
 
-# Rxjs Và Reactive Programming
-{:.no_toc}
 
 Hẳn các bạn vẫn còn nhớ trong một số bài trước chúng ta có nói về **Observable** trong ứng dụng Angular, vậy **Observable** là gì, nó có quan hệ gì với Angular, làm thế nào để sử dụng **Observable** hiệu quả trong ứng dụng của bạn. Trong bài này chúng ta sẽ cùng tìm hiểu về **Observable**, về **Rxjs**, **Reactive Programming**.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## 1. Giới thiệu
-{:#post-intro}
 
 Angular đi kèm với một dependency là Rxjs giúp cho nó trở nên **reactive**, một ứng dụng Angular là một **reactive system**.
 Dễ thấy nhất ở đây chính là EventEmitter, hay Reactive Forms mà chúng ta đã tìm hiểu trong các bài học trước.
@@ -79,15 +71,12 @@ Và Rxjs giúp chúng ta có được **reactive** trong lập trình ứng dụ
 * **Operators**: là các pure functions cho phép lập trình functional với Observable.
 * **Subject**: để thực hiện việc gửi dữ liệu đến nhiều Observers (multicasting).
 * **Schedulers**: một scheduler sẽ điều khiển khi nào một subscription bắt đầu thực thi, và khi nào sẽ gửi tín hiệu đi. (Trong bài này chúng ta sẽ không nói về phần này).
-{:.tpc__list}
 
 ## 2. Array Trong JavaScript
-{:#array}
 
 Trước khi bắt đầu với Observable, chúng ta sẽ ôn lại một số kiến thức về Array sẽ giúp ích trong việc tiếp cận Observable.
 
 ### 2.1 Array forEach
-{:#array-foreach}
 
 Array `forEach` là một trong các cách để ta có thể lặp qua lần lượt từng phần tử trong mảng.
 
@@ -137,7 +126,6 @@ ref.forEach((item, index) => {
 ```
 
 ### 2.2 Array map
-{:#array-map}
 
 Array `map` cho phép chúng ta lặp qua tất cả các phần tử trong mảng, áp dụng một function nào đó lên các phần tử để biến đổi, sau đó trả về một mảng các giá trị sau khi thực hiện function.
 
@@ -157,7 +145,6 @@ console.log(arr, amp);
 ```
 
 ### 2.3 Array filter
-{:#array-filter}
 
 Array `filter` cho phép chúng ta lặp qua tất cả các phần tử trong mảng, áp dụng một function nào đó lên các phần tử để kiểm tra, sau đó trả về một mảng các giá trị sau khi thực hiện hàm kiểm tra mà thỏa mãn điều kiện (`return true`) và giữ nguyên mảng cũ không bị ảnh hưởng.
 
@@ -177,7 +164,6 @@ console.log(arr, amp);
 ```
 
 ### 2.4 Array reduce
-{:#array-reduce}
 
 Method `reduce` cho phép chúng ta lặp qua tất cả các phần tử và áp dụng một function nào đó vào mỗi phần tử, function này có các tham số:
 
@@ -185,7 +171,6 @@ Method `reduce` cho phép chúng ta lặp qua tất cả các phần tử và á
 * `currentValue`: giá trị của phần tử hiện tại trong array.
 * `currentIndex`: index của phần tử hiện tại.
 * `array`: chính là mảng hiện tại.
-{:.tpc__list}
 
 Ngoài ra, chúng ta còn có thể cung cấp giá trị ban đầu `initialValue` sau tham số function đầu tiên.
 
@@ -202,7 +187,6 @@ console.log(val);
 ```
 
 ### 2.5 Flatten Array
-{:#flatten-array}
 
 Trong nhiều tình huống, chúng ta có các array, bên trong mỗi phần tử có thể là các array khác, lúc này chúng ta có nhiệm vụ làm giảm số chiều (flatten) đi chẳng hạn, chúng ta có thể có đoạn code xử lý sau trong JavaScript.
 
@@ -228,7 +212,6 @@ Như ở ví dụ trên, chúng ta flat mảng con 2 chiều thành 1 chiều, v
 Điều này các bạn sẽ hay gặp khi làm việc với Observable trả về Observable trong các phần tiếp theo.
 
 ## 3. Producer vs Consumer, Push vs Pull
-{:#producer-consumer-push-pull}
 
 > Pull and Push are two different protocols how a data Producer can communicate with a data Consumer.
 > 
@@ -295,11 +278,10 @@ button.addEventListener('click', () => console.log('Clicked!'));
 ```
 
 ## 4. Observable
-{:#observable}
 
 **Lưu ý, để code theo các ví dụ trong bài học này, bạn có thể clone bin sau**:
 
-<a href="https://jsbin.com/zazacew/1/edit?js,console" target="_blank">Rxjs starter - jsbin</a>
+<a href="https://jsbin.com/zazacew/1/edit?js,console" target="_blank" rel="noopener noreferrer">Rxjs starter - jsbin</a>
 
 Vậy Observable là gì?
 
@@ -381,7 +363,6 @@ Observable có thể deal với cả sync và async.
 > 
 
 ## 5. Làm Quen Với Observable
-{:#anatomy-observable}
 
 Với Observable chúng ta sẽ quan tâm đến các thao tác như sau:
 
@@ -389,11 +370,9 @@ Với Observable chúng ta sẽ quan tâm đến các thao tác như sau:
 * **Subscribing** to Observables
 * **Executing** the Observable
 * **Disposing** Observables
-{:.tpc__list}
 
 
 ### 5.1 Creating Observables
-{:#creating-observables}
 
 `Rx.Observable.create` là một operator, nó chỉ là một alias cho `Observable` constructor, chúng ta hoàn toàn có thể thay thế tương ứng bằng cách gọi constructor cũng cho kết quả tương tự.
 
@@ -433,7 +412,6 @@ const fromArrayObservable = Rx.Observable.from(arr);
 ```
 
 ### 5.2 Subscribing to Observables
-{:#subscribing-observables}
 
 Sau khi đã tạo xong một Observable, chúng ta cần `invoke` bằng cách `subscribe` vào như sau:
 
@@ -448,7 +426,6 @@ observable.subscribe(val => console.log(val));
 Vậy nên chúng ta call một function `n` lần, chúng ta sẽ có `n` lần thực thi. Tương tự như thế, khi chúng ta `subscribe` vào một Observable `m` lần, thì có `m` lần thực thi, một lời gọi `subscribe` giống như một cách để Observable bắt đầu thực thi.
 
 ### 5.3 Executing Observables
-{:#executing-observables}
 
 Phần code khi chúng ta khởi tạo Observable `Rx.Observable.create(function subscribe(observer) {...})` chính là "Observable execution". Giống như khai báo một function, phần code này để thực hiện một số hành động, xử lý nào đó; chúng là `lazy computation` - chỉ thực thi khi Observer thực hiện subscribe.
 
@@ -457,7 +434,6 @@ Có ba kiểu giá trị mà một Observable Execution có thể gửi đi:
 * "Next" notification: gửi đi một giá trị, có thể là bất kỳ kiểu dữ liệu nào như Number, a String, an Object, etc.
 * "Error" notification: gửi đi một JavaScript Error hoặc exception.
 * "Complete" notification: không gửi đi một giá trị nào, nhưng nó gửi đi một tín hiệu để báo rằng stream này đã completed, mục đích để Observer có thể thực hiện một hành động nào đó khi stream completed.
-{:.tpc__list}
 
 Next notifications thường được sử dụng rộng rãi, nó cực kỳ quan trọng, vì nó gửi đi dữ liệu cần thiết cho một Observer.
 
@@ -513,7 +489,6 @@ observable.subscribe(observer);
 ```
 
 ### 5.4 Disposing Observable Executions
-{:#disposing-observables}
 
 Bởi vì quá trình thực thi Observable có thể lặp vô hạn, hoặc trong trường hợp nào đó bạn muốn thực hiện hủy việc thực thi vì việc này không còn cần thiết nữa - dữ liệu đã lỗi thời, có dữ liệu khác thay thế. Các bạn có thể liên tưởng tới việc close websocket stream, removeEvenListener cho một element nào đó đã bị loại bỏ khỏi DOM chẳng hạn.
 
@@ -548,7 +523,6 @@ setTimeout(() => {
 ```
 
 ## 6. Observer
-{:#rxjs-observer}
 
 Observer là một Consumer những dữ liệu được gửi bởi Observable. Observer là một object chứa một tập 3 callbacks tương ứng cho mỗi loại notification được gửi từ Observable: `next`, `error`, `complete`.
 
@@ -607,7 +581,6 @@ observable.subscribe(
 ```
 
 ## 7. Subscription
-{:#rxjs-subscription}
 
 Subscription là một object đại diện cho một nguồn tài nguyên có khả năng hủy được, thông thường trong Rxjs là hủy Observable execution. Subscription có chứa một method quan trọng `unsubscribe` (từ Rxjs 5), khi method này được gọi, execution sẽ bị hủy.
 
@@ -647,7 +620,6 @@ setTimeout(() => {
 ```
 
 ## 8. Cold Observables vs Hot Observables
-{:#rxjs-cold-hot-observables}
 
 > Cold Observables: Producers created **inside**
 
@@ -719,7 +691,6 @@ Lần này, sau 1s thì cả 2 execution đều in ra giá trị là 15.
 
 
 ## 9. Subject
-{:#rxjs-subject}
 
 Giả sử chúng ta có đoạn code sau đây:
 
@@ -952,7 +923,6 @@ Với phương pháp kể trên, chúng ta đã cơ bản chuyển đổi từ m
 **multicast**: cũng là hai người (có thể nhiều hơn) vào xem video ở Youtube, nhưng video đó đang phát Live (theo dõi một show truyền hình, hay một trận bóng đá Live chẳng hạn). Lúc này Youtube sẽ phát video Live, và những người vào xem video đó sẽ có cùng một thời điểm của video đó (cùng thời điểm của trận đấu đang diễn ra chẳng hạn).
 
 ### 9.1 BehaviorSubject
-{:#rxjs-BehaviorSubject}
 
 Một trong các biến thể của Subject đó là BehaviorSubject, nó là biến thế có khái niệm về "the current value". BehaviorSubject lưu trữ lại giá trị mới emit gần nhất để khi một Observer mới subscribe vào, nó sẽ emit giá trị đó ngay lập tức cho Observer vừa rồi.
 
@@ -991,7 +961,6 @@ observerB: 3
 ```
 
 ### 9.2 ReplaySubject
-{:#rxjs-ReplaySubject}
 
 Một ReplaySubject tương tự như một BehaviorSubject khi nó có thể gửi những dữ liệu trước đó cho Observer mới subscribe, nhưng nó có thể lưu giữ nhiều giá trị (có thể là toàn bộ giá trị của stream từ thời điểm ban đầu).
 
@@ -1074,7 +1043,6 @@ setTimeout(() => {
 Trong ví dụ trên sau 1s chỉ có giá trị 3, 4 và 5 là được emit trong 500ms gần nhất và nằm trong buffer nên được replay lại cho `observerB`.
 
 ### 9.3 AsyncSubject
-{:#rxjs-AsyncSubject}
 
 Đây là biến thể mà chỉ emit giá trị cuối cùng của Observable execution cho các observers, và chỉ khi execution complete.
 
@@ -1109,7 +1077,6 @@ subject.complete();
 ```
 
 ### 9.4 Subject Complete
-{:#rxjs-SubjectComplete}
 
 Khi BehaviorSubject complete, thì các Observers subscribe vào sau đó sẽ chỉ nhận được `complete` signal.
 
@@ -1216,7 +1183,6 @@ subject.subscribe({
 ```
 
 ## 10. Operators
-{:#rxjs-Operators}
 
 Trong Rxjs chúng ta thấy có vô số các method/static method được cung cấp, khiến nó trở nên vô cùng mạnh mẽ và hữu dụng.
 
@@ -1294,7 +1260,6 @@ amap.subscribe(observerM);
 ```
 
 ### 10.1 Instance operators vs static operators
-{:#InstancevsStaticOperators}
 
 Thông thường **static operators** là các operators được gắn với `class` Observable, chúng được dùng phổ biến để tạo mới Observable.
 
@@ -1347,12 +1312,10 @@ Operators được chia vào nhiều nhóm khác nhau, mỗi nhóm có một m�
 * Multicasting Operators.
 * Conditional and Boolean Operators.
 * Mathematical and Aggregate Operators
-{:.tpc__list}
 
 Sau đây chúng ta sẽ tìm hiểu một số operators chính hay dùng đến.
 
 ### 10.2 Creation Operators
-{:#rxjs-CreationOperators}
 
 Từ đầu đến giờ chúng ta đã quen với sử dụng `create` operator để tạo ra Observable, ngoài ra chúng ta còn có một số operators khác để tạo Observable từ những common usecase.
 
@@ -1383,7 +1346,6 @@ Một số operators tương tự:
 * throw: để bắn ra error.
 * empty: không gửi gì khác ngoài `complete` signal.
 * never: không gửi bất kỳ loại signals nào.
-{:.tpc__list}
 
 **Tổng quát cho các loại event** thì chúng ta có `fromEventPattern`:
 
@@ -1484,7 +1446,6 @@ source.subscribe(x => console.log(x));
 Còn nhiều các operators khác nữa như `repeatWhen`, các bạn vào trang chủ của ReactiveX để xem thêm.
 
 ### 10.3 Transformation Operators
-{:#rxjs-TransformationOperators}
 
 Transformation Operators dùng để chuyển đổi giá trị của Observable từ dạng này sang sang dạng khác.
 
@@ -1591,7 +1552,6 @@ const bufferTimeSub = bufferTime.subscribe(
 Ngoài ra còn rất nhiều operators khác như `buffer`, và một số Operators chúng ta sẽ tìm hiểu ở phần sau "Higher Order Observables".
 
 ### 10.4 Filtering Operators
-{:#rxjs-FilteringOperators}
 
 Filtering Operators mục đích để filter các giá trị được emit thỏa mãn điều kiện nào đó.
 
@@ -1822,7 +1782,6 @@ Khi bạn không di chuyển chuột mà click liên tục thì không có gì �
 Trên đây chỉ là một số Filter Operators hay dùng, các bạn có thể vào trang chủ của ReactiveX để tìm hiểu thêm những operators như `debounce`, `throttle`, etc.
 
 ### 10.5 Combination Operators
-{:#rxjs-CombinationOperators}
 
 Combination Operators: sử dụng để kết hợp các Observables lại với nhau.
 
@@ -2169,7 +2128,6 @@ const sub = source
 ```
 
 ### 10.5 Error Handling Operators
-{:#rxjs-ErrorHandlingOperators}
 
 Error Handling Operators sử dụng để handle error trong ứng dụng của bạn.
 
@@ -2262,7 +2220,6 @@ const subscribe = retryWhen$.subscribe(
 ```
 
 ### 10.6 Utility Observables
-{:#rxjs-UtilityOperators}
 
 **do**: `do(nextOrObserver: function, error: function, complete: function): Observable`
 
@@ -2314,7 +2271,6 @@ foo$.subscribe(x => console.log(x));
 Và còn nhiều operators khác như `toPromise` trên trang chủ của ReactiveX.
 
 ### 10.7 Higher Order Observables
-{:#rxjs-HigherOrderOperators}
 
 Higher Order Observable (HOO) là một Observable trả về một Observable, nó giống như mảng nhiều chiều vậy - mảng 2 chiều chứa trong nó các mảng 1 chiều.
 
@@ -2496,7 +2452,6 @@ foo$.subscribe(val => console.log(val));
 Lưu ý: Trong hầu hết các trường hợp nếu bạn không có ý định gì đặc biệt thì nên dùng `switchMap` thay vì `mergeMap`.
 
 ## 11. Tổng kết
-{:#rxjs-summary}
 
 Trong bài này chúng ta đã tìm hiểu rất nhiều vấn đề về Reactive Programming với Rxjs, nhưng vẫn còn thiếu phần **Multicasting**, hi vọng mình sẽ làm xong phần đó trong thời gian tới.
 
@@ -2508,7 +2463,6 @@ Các bạn quan tâm về Rxjs có thể theo dõi thêm các phần khác ở t
 
 Sau đây là một phần bonus để các bạn tạo ra một `Decorator` mà nó chịu trách nhiệm tự `unsubscribe` các subscription trong ứng dụng của bạn.
 
-{% raw %}
 ```ts
 
 // `decorators.ts`
@@ -2572,21 +2526,19 @@ export class AppComponent {
 }
 
 ```
-{% endraw %}
 
 ## 12. Link tham khảo
-{:#rxjs-references}
 
-<a href="http://reactivex.io/rxjs/manual/overview.html" target="_blank">Rxjs Official Docs</a>
+- <a href="http://reactivex.io/rxjs/manual/overview.html" target="_blank" rel="noopener noreferrer">Rxjs Official Docs</a>
 
-<a href="https://www.learnrxjs.io/" target="_blank">learnrxjs.io</a>
+- <a href="https://www.learnrxjs.io/" target="_blank" rel="noopener noreferrer">learnrxjs.io</a>
 
-<a href="http://rxmarbles.com/" target="_blank">rxmarbles.com</a>
+- <a href="http://rxmarbles.com/" target="_blank" rel="noopener noreferrer">rxmarbles.com</a>
 
-<a href="https://rxviz.com/" target="_blank">Rx Visualizer</a>
+- <a href="https://rxviz.com/" target="_blank" rel="noopener noreferrer">Rx Visualizer</a>
 
-<a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank">Hot vs Cold Observables</a>
+- <a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank" rel="noopener noreferrer">Hot vs Cold Observables</a>
 
-<a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank">The introduction to Reactive Programming you've been missing</a>
+- <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank">The introduction to Reactive Programming you've been missing</a>
 
-<a href="https://github.com/ReactiveX/rxjs" target="_blank">Rxjs Github Repo</a>
+- <a href="https://github.com/ReactiveX/rxjs" target="_blank" rel="noopener noreferrer">Rxjs Github Repo</a>
