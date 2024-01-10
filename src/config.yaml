@@ -1,7 +1,7 @@
 site:
   name: Tiep Phan
   subtitle: 'Lập trình thật kỳ diệu'
-  site: 'https://next.tiepphan.com'
+  site: 'https://www.tiepphan.com'
   logo: '@public/assets/images/logo.svg'
   base: '/'
   trailingSlash: true
