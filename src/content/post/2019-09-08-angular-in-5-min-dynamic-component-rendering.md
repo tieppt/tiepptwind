@@ -42,7 +42,7 @@ Trong bài này chúng ta sẽ tìm hiểu cách để Dynamic Component Renderi
 $ ng new dynamic-component
 ```
 
-Sau đó mở project bằng editor tùy thích, rồi khởi chạy project bằng câu lệnh `ng serve` và mở app ở <a href="http://localhost:4200" target="_blank">http://localhost:4200</a> để xem.
+Sau đó mở project bằng editor tùy thích, rồi khởi chạy project bằng câu lệnh `ng serve` và mở app ở <a href="http://localhost:4200" target="_blank" rel="noopener noreferrer">http://localhost:4200</a> để xem.
 
 ## 2. Create Angular Components
 {:#create-angular-components}
@@ -395,13 +395,13 @@ export class DynamicContainerDirective implements OnInit {
 ## 7. Link Tham Khảo
 {:#doc-references}
 
-Code demo: <a href="https://github.com/tieppt/dynamic-component-demo" target="_blank">https://github.com/tieppt/dynamic-component-demo</a>
+Code demo: <a href="https://github.com/tieppt/dynamic-component-demo" target="_blank" rel="noopener noreferrer">https://github.com/tieppt/dynamic-component-demo</a>
 
-<a href="https://angular.io/api/core/ViewChild" target="_blank">ViewChild</a>
+<a href="https://angular.io/api/core/ViewChild" target="_blank" rel="noopener noreferrer">ViewChild</a>
 
-<a href="https://angular.io/api/core/ComponentRef" target="_blank">ComponentRef</a>
+<a href="https://angular.io/api/core/ComponentRef" target="_blank" rel="noopener noreferrer">ComponentRef</a>
 
-<a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>
+<a href="https://angular.io/api/core/ViewContainerRef" target="_blank" rel="noopener noreferrer">ViewContainerRef</a>
 
-<a href="https://material.angular.io/cdk/portal/overview" target="_blank">Angular CDK Portal</a>
+<a href="https://material.angular.io/cdk/portal/overview" target="_blank" rel="noopener noreferrer">Angular CDK Portal</a>
 

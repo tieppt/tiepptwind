@@ -39,16 +39,16 @@ Trong bài này, chúng ta sẽ sử dụng Angular CLI và config HTTPS thông 
 $ ng new secure-app
 ```
 
-Sau đó mở project bằng editor tùy thích, rồi khởi chạy project bằng câu lệnh `ng serve` và mở app ở <a href="http://localhost:4200" target="_blank">http://localhost:4200</a> để xem.
+Sau đó mở project bằng editor tùy thích, rồi khởi chạy project bằng câu lệnh `ng serve` và mở app ở <a href="http://localhost:4200" target="_blank" rel="noopener noreferrer">http://localhost:4200</a> để xem.
 
 ## 2. Install mkcert
 {:#install-mkcert}
 
 Hướng dẫn cài đặt ở trang repo của **mkcert**
 
-<a href="https://github.com/FiloSottile/mkcert#installation" target="_blank">Hướng dẫn cài đặt mkcert</a>
+<a href="https://github.com/FiloSottile/mkcert#installation" target="_blank" rel="noopener noreferrer">Hướng dẫn cài đặt mkcert</a>
 
-Trên Windows các bạn có thể <a href="https://github.com/FiloSottile/mkcert/releases" target="_blank">tải về bộ cài mkcert</a> hoặc sử dụng <a href="https://chocolatey.org/" target="_blank">Chocolatey</a>.
+Trên Windows các bạn có thể <a href="https://github.com/FiloSottile/mkcert/releases" target="_blank" rel="noopener noreferrer">tải về bộ cài mkcert</a> hoặc sử dụng <a href="https://chocolatey.org/" target="_blank" rel="noopener noreferrer">Chocolatey</a>.
 
 ## 3. Install cert
 {:#install-cert}
@@ -83,7 +83,7 @@ Kết quả sẽ có được như hình:
 
 Tiếp theo bạn mở `angular.json` file, và update mục `serve` như hình dưới.
 
-Sau cùng là chạy `ng serve` và vào link sau để thấy được kết quả <a href="https://localhost:4200" target="_blank">https://localhost:4200</a>.
+Sau cùng là chạy `ng serve` và vào link sau để thấy được kết quả <a href="https://localhost:4200" target="_blank" rel="noopener noreferrer">https://localhost:4200</a>.
 
 > Lưu ý: tên file sẽ là tên được generate ở bước trên.
 

@@ -21,7 +21,7 @@ tags:
 ---
 import Figure from '~/components/ui/Figure.astro';
 
-<a href="https://angular.io/" target="_blank">Angular 2</a> đã phát hành chính thức, tính tới thời điểm viết bài này, nó đã ra đến phiên bản 2.2.x, hầu hết các blog đều có những lời đánh tiếng về nó và cũng có vô vàn các hướng dẫn để bạn có thể tiếp cận với Angular 2. Vậy bạn đã sẵn sàng để bắt đầu với nền tảng hot này chưa? Hãy cùng mình thử nghiệm với nó nhé.
+<a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular 2</a> đã phát hành chính thức, tính tới thời điểm viết bài này, nó đã ra đến phiên bản 2.2.x, hầu hết các blog đều có những lời đánh tiếng về nó và cũng có vô vàn các hướng dẫn để bạn có thể tiếp cận với Angular 2. Vậy bạn đã sẵn sàng để bắt đầu với nền tảng hot này chưa? Hãy cùng mình thử nghiệm với nó nhé.
 
 <Figure
   link="https://github.com/angular/angular"
@@ -38,9 +38,9 @@ import Figure from '~/components/ui/Figure.astro';
 
 > Angular is a development platform for building mobile and desktop web applications.
 
-Angular 2 giờ đây là một nền tảng, nó không chỉ là một framework như trước nữa. <a href="https://angular.io/features.html" target="_blank">Giờ đây bạn có thể tạo ứng dụng đa nền tảng như web application, native application, desktop application với Angular 2</a>. Ngoài ra, còn có một cộng đồng lớn mạnh, bạn rất dễ dàng để có thể tiếp cận.
+Angular 2 giờ đây là một nền tảng, nó không chỉ là một framework như trước nữa. <a href="https://angular.io/features.html" target="_blank" rel="noopener noreferrer">Giờ đây bạn có thể tạo ứng dụng đa nền tảng như web application, native application, desktop application với Angular 2</a>. Ngoài ra, còn có một cộng đồng lớn mạnh, bạn rất dễ dàng để có thể tiếp cận.
 
-Bằng việc thay đổi lại hoàn toàn kiến trúc của mình, Angular 2 dễ dàng tiếp cận hơn, hiện đại hơn – component based, hiệu năng cao hơn, nhanh hơn Angular 1. Angular 2 được phát triển từ hơn 5 năm đóng góp ý kiến của cộng đồng người dùng Angular, được viết lại trên <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> cho phép các nhà phát triển tận dụng các tính năng nổi bật của ES2015, ES2016+ càng khiến nó trở nên mạnh mẽ hơn trong quá trình phát triển tiếp theo của mình.
+Bằng việc thay đổi lại hoàn toàn kiến trúc của mình, Angular 2 dễ dàng tiếp cận hơn, hiện đại hơn – component based, hiệu năng cao hơn, nhanh hơn Angular 1. Angular 2 được phát triển từ hơn 5 năm đóng góp ý kiến của cộng đồng người dùng Angular, được viết lại trên <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a> cho phép các nhà phát triển tận dụng các tính năng nổi bật của ES2015, ES2016+ càng khiến nó trở nên mạnh mẽ hơn trong quá trình phát triển tiếp theo của mình.
 
 Một số tính năng mới của Angular 2 như:
 
@@ -57,11 +57,11 @@ Một số tính năng mới của Angular 2 như:
 
 Trước khi bắt đầu thử nghiệm, chúng ta cần chuẩn bị một số công cụ cho quá trình phát triển phần mềm, trong trường hợp này là tạo các ứng dụng trên nền tảng của Angular 2.
 
-– <a href="https://nodejs.org/en/" target="_blank">Nodejs:</a>
+– <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">Nodejs:</a>
 
-Các bạn tải về phần cài đặt cho <a href="https://nodejs.org/en/download/" target="_blank">Nodejs tại đây</a>, mình ưu tiên sử dụng bản 6 trở lên và dùng bản LTS. Các bạn tải về và cài đặt theo hệ điều hành đang sử dụng.
+Các bạn tải về phần cài đặt cho <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">Nodejs tại đây</a>, mình ưu tiên sử dụng bản 6 trở lên và dùng bản LTS. Các bạn tải về và cài đặt theo hệ điều hành đang sử dụng.
 
-– <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>:
+– <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a>:
 
 Sau khi cài đặt các bạn mở Command Prompt/Terminal lên và cài đặt TypeScript qua npm.
 
@@ -73,11 +73,11 @@ npm i -g typescript
 
 Quá trình cài đặt sẽ cài đặt TypeScript thành global package, có thể chạy command từ bất kỳ đâu.
 
-– <a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a>:
+– <a href="https://github.com/angular/angular-cli" target="_blank" rel="noopener noreferrer">Angular CLI</a>:
 
 Angular CLI là command line tool giúp bạn tạo một số thành phần hoặc một project Angular 2 từ đầu. Ngoài ra, còn một số thiết lập để bạn bắt đầu với Angular 2 dễ dàng hơn.
 
-Các bạn có thể sử dụng &#8220;<a href="https://github.com/angular/quickstart" target="_blank">Quick start</a>&#8221; hoặc &#8220;<a href="https://github.com/angular/angular2-seed" target="_blank">Angular 2 seed</a>&#8221; nếu muốn, các phần code cũng sẽ giống nhau. Mình sẽ sử dụng Angular CLI.
+Các bạn có thể sử dụng &#8220;<a href="https://github.com/angular/quickstart" target="_blank" rel="noopener noreferrer">Quick start</a>&#8221; hoặc &#8220;<a href="https://github.com/angular/angular2-seed" target="_blank" rel="noopener noreferrer">Angular 2 seed</a>&#8221; nếu muốn, các phần code cũng sẽ giống nhau. Mình sẽ sử dụng Angular CLI.
 
 Để cài đặt Angular CLI, chúng ta cũng làm tương tự như khi cài đặt TypeScript.
 
@@ -87,7 +87,7 @@ npm install -g @angular/cli
 npm i -g @angular/cli
 ```
 
-– Version Control System: <a href="https://git-scm.com/" target="_blank">Git</a> (không bắt buộc)
+– Version Control System: <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a> (không bắt buộc)
 
 Hiện nay, việc dùng Git khi phát triển phần mềm rất phổ biến, bạn có thể quản lý các phiên bản một cách dễ dàng. Nếu chưa biết bạn hoàn toàn có thể học cách sử dụng khá nhanh.
 
@@ -95,7 +95,7 @@ Các bạn có thể tải về bản mới nhất từ trang chủ rồi cài �
 
 – Editor:
 
-Các bạn có thể dùng bất cứ editor nào mình thích và quen thuộc để làm việc, mình có một số gợi ý: <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>, <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom</a>, thậm chí <a href="http://www.vim.org/" target="_blank">Vim</a>.
+Các bạn có thể dùng bất cứ editor nào mình thích và quen thuộc để làm việc, mình có một số gợi ý: <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>, <a href="https://www.sublimetext.com/" target="_blank" rel="noopener noreferrer">Sublime Text</a>, <a href="https://atom.io/" target="_blank" rel="noopener noreferrer">Atom</a>, thậm chí <a href="http://www.vim.org/" target="_blank" rel="noopener noreferrer">Vim</a>.
 
 ### 3. Tiến hành.
 
@@ -141,7 +141,7 @@ Một ứng dụng Angular 2 xây dựng trên vô số Component.
 
 Đoạn code trên có ý nghĩa gì?
 
-* Dòng 1: khi bạn muốn dùng một, một số module, thành phần nào đó từ module khác, bạn import chúng vào, đây là công việc để lấy về các thành phần mà module của bạn phụ thuộc vào. Tính năng này có trong ES2015: modules import. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import" target="_blank">Bạn có thể tìm hiểu thêm tại đây</a>.
+* Dòng 1: khi bạn muốn dùng một, một số module, thành phần nào đó từ module khác, bạn import chúng vào, đây là công việc để lấy về các thành phần mà module của bạn phụ thuộc vào. Tính năng này có trong ES2015: modules import. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import" target="_blank" rel="noopener noreferrer">Bạn có thể tìm hiểu thêm tại đây</a>.
 
 * Dòng 3 – 7: `@Component` để làm gì?
 
@@ -222,11 +222,11 @@ Dưới đây là list đầy đủ các properties của object trên. Mình s�
 
 * Dòng 8 – 10:
 
-Định nghĩa class tên là `AppComponent`, với property `title` sau đó export cho module khác sử dụng, đây là tính năng <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export" target="_blank">module export</a> và <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class" target="_blank">class</a> trong ES2015.
+Định nghĩa class tên là `AppComponent`, với property `title` sau đó export cho module khác sử dụng, đây là tính năng <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export" target="_blank" rel="noopener noreferrer">module export</a> và <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class" target="_blank" rel="noopener noreferrer">class</a> trong ES2015.
 
 **Chúng ta vừa hoàn thành duyệt qua một vòng về Component, vậy làm gì tiếp theo đây?**
 
-Câu trả lời là <a href="https://angular.io/docs/ts/latest/guide/ngmodule.html" target="_blank">Angular Module</a> hay NgModule.
+Câu trả lời là <a href="https://angular.io/docs/ts/latest/guide/ngmodule.html" target="_blank" rel="noopener noreferrer">Angular Module</a> hay NgModule.
 
 > **Angular Modules** help organize an application into cohesive blocks of functionality.
 > 
@@ -281,7 +281,7 @@ Khi làm việc với Dependency injection, chúng ta cần khai báo các Servi
 
 Khi định nghĩa root Module, chúng ta cần nói cho Angular biết chương trình cần bắt đầu ở đâu. Trong hình 8, chúng ta muốn Angular khởi chạy `AppComponent`.
 
-Ngoài ra còn có **`exports` array** là list các component mà Module này trả về cho Module khác. Các bạn có thể xem thêm về <a href="https://angular.io/docs/ts/latest/guide/architecture.html" target="_blank">kiến trúc của Angular tại đây</a>.
+Ngoài ra còn có **`exports` array** là list các component mà Module này trả về cho Module khác. Các bạn có thể xem thêm về <a href="https://angular.io/docs/ts/latest/guide/architecture.html" target="_blank" rel="noopener noreferrer">kiến trúc của Angular tại đây</a>.
 
 
 **Chúng ta đã có Component, có Module, vậy khởi chạy chúng như thế nào?**
@@ -313,7 +313,7 @@ Các bạn vào Command Prompt/Terminal sau đó gõ lệnh `ng serve` và nh�
 />
 
 
-Sau đó, các bạn mở trình duyệt vào truy cập vào địa chỉ <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a>. Kết quả có dạng như sau.
+Sau đó, các bạn mở trình duyệt vào truy cập vào địa chỉ <a href="http://localhost:4200/" target="_blank" rel="noopener noreferrer">http://localhost:4200/</a>. Kết quả có dạng như sau.
 
 <Figure
   className="post-figure"

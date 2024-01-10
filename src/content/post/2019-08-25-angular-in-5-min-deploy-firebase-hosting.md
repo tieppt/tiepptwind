@@ -116,5 +116,5 @@ $ firebase deploy --only hosting
 ## 7. Link Tham Khảo
 {:#doc-references}
 
-<a href="https://angular.io/guide/deployment" target="_blank">Hướng dẫn deploy từ Angular.io</a>
+<a href="https://angular.io/guide/deployment" target="_blank" rel="noopener noreferrer">Hướng dẫn deploy từ Angular.io</a>
 
