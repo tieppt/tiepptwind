@@ -1,9 +1,7 @@
 ---
-id: 1013
 title: 'Angular Trong 5 Phút: Dynamic Component Rendering'
 publishDate: 2019-09-08T10:00:00+00:00
 author: Tiep Phan
-guid: https://www.tiepphan.com/?p=1013
 permalink: /angular-trong-5-phut-dynamic-component-rendering/
 description: 'Hướng Dẫn Dynamic Component Rendering Trong Angular'
 image: '@public/assets/uploads/2019/09/angular-5-mins-dynamic-component-rendering.jpg'
@@ -19,9 +17,9 @@ tags:
   - Angular Trong 5 Phút
 
 ---
+import Youtube from '~/components/ui/Youtube.astro';
 
-# Angular Trong 5 Phút: Dynamic Component Rendering
-{:.no_toc}
+## Dynamic Component Rendering
 
 Trong nhiều trường hợp, chúng ta không biết trước phải render component nào, mà sẽ được render lúc runtime.
 
@@ -29,12 +27,8 @@ Ví dụ như Dialog, Snackbar của Angular Material chẳng hạn. Là ngườ
 
 Trong bài này chúng ta sẽ tìm hiểu cách để Dynamic Component Rendering trong Angular như thế nào.
 
-* ToC
-{:toc}
-{:.tp__toc}
 
 ## 1. Create Angular Application
-{:#create-app}
 
 Để bắt đầu chúng ta sẽ tạo một project mới bằng Angular CLI, các bạn có thể để chọn default bằng cách nhấn enter vài lần.
 
@@ -45,7 +39,6 @@ $ ng new dynamic-component
 Sau đó mở project bằng editor tùy thích, rồi khởi chạy project bằng câu lệnh `ng serve` và mở app ở <a href="http://localhost:4200" target="_blank" rel="noopener noreferrer">http://localhost:4200</a> để xem.
 
 ## 2. Create Angular Components
-{:#create-angular-components}
 
 Chúng ta sẽ lần lượt tạo 2 component đặt tên lần lượt là alert-container và alert-content; để demo.
 
@@ -58,7 +51,6 @@ $ ng g c alert-content
 Thêm selector của alert-container vào `app.component.html` và xem kết quả.
 
 ## 3. Thiết lập phần container
-{:#setup-view-container}
 
 ```html
 <ng-container #container></ng-container>
@@ -89,7 +81,6 @@ export class AlertContainerComponent implements OnInit {
 ```
 
 ### 3.1 `ViewContainerRef` là gì?
-{:.no_toc}
 
 Nó là một cái container từ đó có thể tạo ra Host View (component khi được khởi tạo sẽ tạo ra view tương ứng), và Embedded View  (được tạo từ TemplateRef). Với các view được tạo đó sẽ có nơi để gắn vào (container).
 
@@ -97,7 +88,6 @@ Container có thể chứa các container khác (`ng-container` chẳng hạn) t
 Hay hiểu đơn giản thì nó giống như 1 DOM Element, khi đó có thể add thêm các view khác (`Component`, `Template`) vào đó.
 
 ### 3.2 `static` property có ý nghĩa gì?
-{:.no_toc}
 
 `static: true` resolve query results before change detection runs
 
@@ -146,7 +136,6 @@ export class AlertContainerComponent implements OnInit, AfterViewInit {
 ```
 
 ## 4. Tiến hành render component ở runtime
-{:#dynamic-component-rendering}
 
 ```ts
 export class AlertContainerComponent implements OnInit, AfterViewInit {
@@ -196,7 +185,6 @@ const componentRef = container.createComponent(componentFactory, 0, injector);
 ```
 
 ### Fix lỗi Error No component factory found for
-{:.no_toc}
 
 > Error: No component factory found for AlertContentComponent. Did you add it to @NgModule.entryComponents?
 
@@ -212,10 +200,8 @@ export class YourModule { }
 ```
 
 ## 5. Tương tác giữa 2 component
-{:#dynamic-comp-communication}
 
 ### 5.1 Gửi dữ liệu cho dynamic component:
-{:.no_toc}
 
 ```ts
 export class AlertContentComponent implements OnInit {
@@ -231,7 +217,6 @@ componentRef.instance.data = 'Data from container';
 ```
 
 ### 5.2 Emit Event để close bằng service
-{:.no_toc}
 
 Tạo service và sử dụng RxJS Subject để làm Event Bus, giúp dễ dàng gửi Event qua lại giữa các componnent.
 
@@ -299,7 +284,6 @@ export class AlertContentComponent {
 }
 ```
 ### 5.3 Fix lỗi Error ExpressionChangedAfterItHasBeenCheckedError
-{:.no_toc}
 
 > Error: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: 'XXX'. Current value: 'YYY'. It seems like the view has been created after its parent and its children have been dirty checked. Has it been created in a change detection hook ?
 
@@ -386,22 +370,18 @@ export class DynamicContainerDirective implements OnInit {
 
 
 ## 6. Video
-{:#5min-video}
+<Youtube id="Z5axQKnT0VU" />
 
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/Z5axQKnT0VU" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
 
 ## 7. Link Tham Khảo
-{:#doc-references}
 
-Code demo: <a href="https://github.com/tieppt/dynamic-component-demo" target="_blank" rel="noopener noreferrer">https://github.com/tieppt/dynamic-component-demo</a>
+- Code demo: <a href="https://github.com/tieppt/dynamic-component-demo" target="_blank" rel="noopener noreferrer">{'https://github.com/tieppt/dynamic-component-demo'}</a>
 
-<a href="https://angular.io/api/core/ViewChild" target="_blank" rel="noopener noreferrer">ViewChild</a>
+- <a href="https://angular.io/api/core/ViewChild" target="_blank" rel="noopener noreferrer">ViewChild</a>
 
-<a href="https://angular.io/api/core/ComponentRef" target="_blank" rel="noopener noreferrer">ComponentRef</a>
+- <a href="https://angular.io/api/core/ComponentRef" target="_blank" rel="noopener noreferrer">ComponentRef</a>
 
-<a href="https://angular.io/api/core/ViewContainerRef" target="_blank" rel="noopener noreferrer">ViewContainerRef</a>
+- <a href="https://angular.io/api/core/ViewContainerRef" target="_blank" rel="noopener noreferrer">ViewContainerRef</a>
 
-<a href="https://material.angular.io/cdk/portal/overview" target="_blank" rel="noopener noreferrer">Angular CDK Portal</a>
+- <a href="https://material.angular.io/cdk/portal/overview" target="_blank" rel="noopener noreferrer">Angular CDK Portal</a>
 
