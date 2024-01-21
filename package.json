@@ -13,10 +13,10 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/partytown": "^2.0.3",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/mdx": "^2.0.5",
+    "@astrojs/partytown": "^2.0.4",
+    "@astrojs/rss": "^4.0.2",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@astrolib/analytics": "^0.5.0",
     "@astrolib/seo": "^1.0.0-beta.5",
@@ -28,7 +28,7 @@
     "@types/lodash.merge": "^4.6.9",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
-    "astro": "^4.1.0",
+    "astro": "^4.2.1",
     "astro-icon": "1.0.0-next.4",
     "eslint": "^8.55.0",
     "eslint-plugin-astro": "^0.30.0",
