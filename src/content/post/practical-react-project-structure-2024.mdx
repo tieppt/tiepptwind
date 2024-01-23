@@ -1,0 +1,190 @@
+---
+# layout: ../layouts/PostLayout.astro
+title: 'React Project Structure 2024'
+description: 'Let start to find an best react project structure 2024'
+publishDate: 2024-01-22T00:00:00+00:00
+lastmod: 2024-01-22T00:00:00+00:00
+slug: practical-react-project-structure-2024
+draft: false
+weight: 50
+image: '@public/assets/react-project-structure/screenshot-structure-react.png'
+isFeaturedImageEnabled: false
+author: Tony Nguyen
+type: article
+categories:
+  - Web Development
+
+tags:
+  - React
+---
+
+import Figure from '~/components/ui/Figure.astro';
+
+Before web discuss this article. I would like to mention a few things. All of these structure folder will inside "src" folder. Besides, you should be know react basics.
+
+## What is React?
+It is a Javascript library created by Facebook. It is used to build user interface, and an tool for building UI components.
+Almost all the time, we use the create-react-app to create an application react. In this article, we will build an our boilerplate for an application react with the vite.
+
+## How to Structure React application?
+We have read many articles that every article explains the boilerplate, and we can get confused about which one is best approach.
+
+There structure will go in order from the simplest to the most complex, but don’t just jump to the most  advanced/complex structure because depending on your project size. So you can use some parts or all of them for your project.
+
+## Folder structure
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/folder-structure.png"
+  alt="Folder structure react"
+  width="301"
+  height="727"
+/>
+
+## What is the Folder Structure React?
+
+It looks like this.
+
+- styles folder
+- assets folder
+- components folder
+- configs folder
+- context folder
+- layouts folder
+- helpers folder
+- hooks folder
+- services folder
+- types folder
+- states folder
+- pages folder
+
+### styles
+The **styles** folder contains style css of the project. Here we can store component-based custom styles.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/styles-folder.png"
+  alt="styles folder react structure 2024"
+  width="323"
+  height="113"
+/>
+
+### assets
+The **assets** folder contains all images, css files, font files, etc… for your project.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/assets-folder.png"
+  alt="assets folder react structure 2024"
+  width="198"
+  height="162"
+/>
+
+
+### contexts
+The **contexts** folder stores all your React context files that used to share states between components each other. There are large projects you will have multiple context you use across your application. If you are using a different state manage such as Redux, you can replace this folder for share states.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/contexts-folder.png"
+  alt="contexts folder react structure 2024"
+  width="286"
+  height="90"
+/>
+
+### configs
+The **configs** folder contains config files where we store environment variables. We will use this folder to setup configurations in your application. Besides you can use it to stores constant variables, then we just change a place, and they will apply for all placed that used.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/configs-folder.png"
+  alt="configs folder react structure 2024"
+  width="265"
+  height="145"
+/>
+
+### layouts
+The **layouts** folder contains dynamic layout that you want display based on your client’s information. This would be things like a sidebar, navbar, etc… If your application only has a layout then you can just place it in the components folder, but if you have multiple different layouts used across your application this is a great place to store them.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/layouts-folder.png"
+  alt="layouts folder react structure 2024"
+  width="222"
+  height="165"
+/>
+
+### helpers
+The **helpers** folder contains utilities functions. You should be store pure functions on this folder. This mean is each function will have its own responsibilities.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/helpers-folder.png"
+  alt="helpers folder react structure 2024"
+  width="237"
+  height="171"
+/>
+
+### hooks
+The **hooks** folder contains the hooks function to can reuse code logic for all components, and it uses to separate between code logic and your components. So your component just simple show render UI.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/hooks-folder.png"
+  alt="hooks folder react structure 2024"
+  width="267"
+  height="90"
+/>
+
+### services
+The **services** folder contains all your code for interface with any external API. On large projects you will have many different APIs you need to access and this folder is the place to put the code that interact with those APIs.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/servies-folder.png"
+  alt="services folder react structure 2024"
+  width="229"
+  height="115"
+/>
+
+### types
+If your applications created by react typescript. You can use this folder to contains interfaces, types that you use to define on components. This folder easy uses to share interfaces across components.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/types-folder.png"
+  alt="types folder react structure 2024"
+  width="202"
+  height="86"
+/>
+
+### states
+The **states** folder will be added if you use redux in your project. There are 2 folders named actions, reducers to manage states. They will be called in almost all the pages, so create actions, reduces according to pages name.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/states-folder.png"
+  alt="states folder react structure 2024"
+  width="266"
+  height="143"
+/>
+
+### components
+This folder is very important in your project. Components are the building blocks of any react project. This folder contains collections UI components like button, card, modal, input, etc…, that can be used across various files in the project.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/components-folder.png"
+  alt="components folder react structure 2024"
+  width="230"
+  height="90"
+/>
+
+### pages
+The final folder that the pages folder indicate the route of the react application. Each file in this folder contains its route. A page can contain its sub folder. And every sub folder represent its own route. This folder is confused  for yourself when you identify which components are in the pages folder, or in the feature folder. So, I propose we can reference ways the NextJS framework using app router to separate components.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/route-page.png"
+  alt="pages folder react structure 2024"
+  width="1146"
+  height="656"
+/>
+We will create index file which used to export or import named components. We won’t write code login into the index file. That will help us find component name more easily.
+<Figure
+  className="post-figure"
+  src="@public/assets/react-project-structure/route-page-2.png"
+  alt="pages folder react structure 2024"
+  width="582"
+  height="494"
+/>
+
+## Conclusion
+This is one of the most used architecture. As I have already mentioned, no one best architecture will suit evert project. So we ourselves will decide parts into our project and always remember to maintain a folder structure so every project is simple and easily understood by any developer.
