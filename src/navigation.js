@@ -10,8 +10,8 @@ export const headerData = {
           href: getBlogPermalink(),
         },
         {
-          text: 'Lập trình',
-          href: getPermalink('lap-trinh', 'category'),
+          text: 'Programming',
+          href: getPermalink('programming', 'category'),
         },
         {
           text: 'Lập trình với Angular',
