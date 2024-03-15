@@ -78,17 +78,17 @@ export default defineConfig({
 
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
-      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+      // https://shiki.style/themes
       theme: 'github-dark-dimmed',
       // Alternatively, provide multiple themes
-      // https://shikiji.netlify.app/guide/dual-themes#light-dark-dual-themes
-      experimentalThemes: {
+      // https://shiki.style/guide/dual-themes
+      themes: {
         light: 'github-light',
         dark: 'github-dark',
       },
       // Add custom languages
       // Note: Shiki has countless langs built-in, including .astro!
-      // https://github.com/shikijs/shiki/blob/main/docs/languages.md
+      // https://shiki.style/languages
       langs: [],
       // Enable word wrap to prevent horizontal scrolling
       wrap: false,
