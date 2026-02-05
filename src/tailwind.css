@@ -1,0 +1,22 @@
+@theme {
+  /* Custom color utilities using CSS variables */
+  --color-primary: var(--aw-color-primary);
+  --color-secondary: var(--aw-color-secondary);
+  --color-accent: var(--aw-color-accent);
+  --color-default: var(--aw-color-text-default);
+  --color-muted: var(--aw-color-text-muted);
+
+  /* Custom font families */
+  --font-family-sans: var(--aw-font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-family-serif: var(--aw-font-serif), ui-serif, Georgia, serif;
+  --font-family-heading: var(--aw-font-heading), ui-sans-serif, system-ui, sans-serif;
+
+  /* Custom z-index */
+  --z-index--1: -1;
+
+  /* Custom screen breakpoint */
+  --breakpoint-fhd: 1920px;
+}
+
+@plugin "@tailwindcss/typography";
+@source "../src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx,vue}";
