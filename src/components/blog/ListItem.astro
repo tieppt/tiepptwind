@@ -31,7 +31,7 @@ const excerpt = post.excerpt ?? post.description;
 >
   {
     image && (
-      <a class="relative block group" href={link ?? 'javascript:void(0)'}>
+      <a class="relative block group" href={link || '#'}>
         <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
           {image && (
             <Image
@@ -97,13 +97,11 @@ const excerpt = post.excerpt ?? post.description;
 
     {
       excerpt && (
-        <p class="flex-grow text-muted dark:text-slate-400 text-lg">
-          {excerpt}
-        </p>
+        <p class="grow text-muted dark:text-slate-400 text-lg">{excerpt}</p>
       )
     }
     <footer class="mt-5">
-      <PostTags tags={post.tags} />
+      <PostTags processedTags={post.processedTags} />
     </footer>
   </div>
 </article>

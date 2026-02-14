@@ -247,12 +247,13 @@ export const getStaticPathsBlogCategory = async ({
       extractPostCategory(categories, post.category);
       rawCategories.set(post.category, post.rawCategory!);
     }
-    Array.isArray(post.processedCategories) &&
+    if (Array.isArray(post.processedCategories)) {
       post.processedCategories.forEach((category) => {
         if (rawCategories.has(category.slug)) return;
         extractPostCategory(categories, category.slug);
         rawCategories.set(category.slug, category.raw);
       });
+    }
   });
 
   return Array.from(categories).flatMap((category) =>
@@ -290,11 +291,12 @@ export const getStaticPathsBlogTag = async ({
   const tags = new Set<string>();
   const rawTags = new Map<string, string>();
   posts.forEach((post) => {
-    Array.isArray(post.processedTags) &&
+    if (Array.isArray(post.processedTags)) {
       post.processedTags.forEach((tag) => {
         tags.add(tag.slug);
         rawTags.set(tag.slug, tag.raw);
       });
+    }
   });
 
   return Array.from(tags).flatMap((tag) =>
@@ -313,7 +315,7 @@ export const getStaticPathsBlogTag = async ({
   );
 };
 function extractPostCategory(categories: Set<string>, category?: string) {
-  typeof category === 'string' &&
-    category.length > 0 &&
+  if (typeof category === 'string' && category.length > 0) {
     categories.add(category.toLowerCase());
+  }
 }

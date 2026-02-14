@@ -121,35 +121,36 @@ import { UI } from '~/utils/config';
           return;
       }
 
-      const newlink = document.createElement('a');
-      newlink.target = '_blank';
-      newlink.href = href;
-      newlink.click();
+      window.open(href, '_blank', 'noopener');
     });
 
-    function appyHeaderStylesOnScroll() {
+    function applyHeaderStylesOnScroll() {
       const header = document.querySelector('#header[data-aw-sticky-header]');
+      if (!header) {
+        ticking = false;
+        return;
+      }
       if (
         lastKnownScrollPosition > 60 &&
         !header.classList.contains('scroll')
       ) {
-        document.getElementById('header').classList.add('scroll');
+        header.classList.add('scroll');
       } else if (
         lastKnownScrollPosition <= 60 &&
         header.classList.contains('scroll')
       ) {
-        document.getElementById('header').classList.remove('scroll');
+        header.classList.remove('scroll');
       }
       ticking = false;
     }
-    appyHeaderStylesOnScroll();
+    applyHeaderStylesOnScroll();
 
     attachEvent([document], 'scroll', function () {
       lastKnownScrollPosition = window.scrollY;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          appyHeaderStylesOnScroll();
+          applyHeaderStylesOnScroll();
         });
         ticking = true;
       }
@@ -167,8 +168,8 @@ import { UI } from '~/utils/config';
     document.querySelector('#header nav')?.classList.add('hidden');
   };
 
-  window.onload = onLoad;
-  window.onpageshow = onPageShow;
+  window.addEventListener('load', onLoad);
+  window.addEventListener('pageshow', onPageShow);
 
   document.addEventListener('astro:after-swap', () => {
     initTheme();

@@ -59,6 +59,7 @@ const tasksIntegration = () => {
           }
         } catch (err) {
           /* empty */
+          console.error('Error updating robots.txt:', err);
         }
       },
     },

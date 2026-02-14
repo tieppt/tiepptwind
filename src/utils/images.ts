@@ -11,6 +11,7 @@ const load = async function () {
     ]);
   } catch (e) {
     // continue regardless of error
+    console.error('Error loading images:', e);
   }
 
   return images;
