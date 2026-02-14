@@ -22,7 +22,7 @@
 }
 
 @plugin "@tailwindcss/typography";
-@source "../src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx,vue}";
+@source "../../../src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx,vue}";
 
 @utility bg-page {
   background-color: var(--aw-color-bg-page);
@@ -88,17 +88,17 @@
   @apply transition;
 }
 [data-aw-toggle-menu].expanded g > path:first-child {
-  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+  @apply -rotate-45 translate-y-3.75 -translate-x-0.75;
 }
 
 [data-aw-toggle-menu].expanded g > path:last-child {
-  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+  @apply rotate-45 -translate-y-2 translate-x-3.5;
 }
 
 .single-post-container {
   @apply max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl;
   a {
-    @apply break-words;
+    @apply wrap-break-word;
   }
 }
 
